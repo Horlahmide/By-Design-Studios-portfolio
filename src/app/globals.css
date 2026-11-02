@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
+/* =========================================
+   BY DESIGN STUDIO
+   Global Design Tokens
+========================================= */
+
 :root {
-  --background: #ffffff;
+  color-scheme: light;
+
+  /* Surfaces & Canvas */
+  --background: #f5f1e9;
   --foreground: #171717;
+  --charcoal: #111214;
+  --surface-container: #e6e2da;
+
+  /* Typography Colors */
+  --text-primary: #171717;
+  --text-muted: #66645f;
+  --text-subtle: #444748;
+
+  /* Interactive Accent */
+  --accent: #4263d8;
+  --accent-hover: #3154c9;
+
+  /* Architectural Hairlines */
+  --border-light: rgba(23, 23, 23, 0.14);
+  --border-subtle: rgba(23, 23, 23, 0.08);
+  --border-dark: rgba(245, 241, 233, 0.18);
 }
 
+/* Connect design tokens to Tailwind utilities */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-charcoal: var(--charcoal);
+  --color-surface-container: var(--surface-container);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+
+  --color-border-light: var(--border-light);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-dark: var(--border-dark);
+
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-open-sans);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base utility shortcuts matching DESIGN.md */
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+.font-sans {
+  font-family: var(--font-open-sans), Arial, sans-serif;
+}
+.font-mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.hairline-b {
+  border-bottom: 1px solid var(--border-light);
+}
+.hairline-t {
+  border-top: 1px solid var(--border-light);
+}
+.hairline-all {
+  border: 1px solid var(--border-light);
+}
+
+/* =========================================
+   GLOBAL BASE STYLES
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-open-sans), Arial, sans-serif;
+}
+
+/* Display typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 500;
+}
+
+/* Form elements inherit the site's body font */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Links base styling */
+a {
+  text-decoration: none;
+}
+
+/* Media should not overflow its containers */
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Text selection */
+::selection {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Respect reduced-motion preferences for native scrolling */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

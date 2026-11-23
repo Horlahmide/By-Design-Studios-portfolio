@@ -29,8 +29,11 @@
 *.zip
 *.tar.gz
 
-# Design Reference Media (Large screenshots)
-/design/*.png
+# Design Reference Media & Internal Agent Documentation (Local Only)
+/design/
+/docs/
+/AGENTS.md
+/DESIGN.md
 
 # OS & Editor Files
 .DS_Store

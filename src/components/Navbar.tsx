@@ -16,6 +16,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close the mobile menu with Escape (INTERACTION_SPEC §4)
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
@@ -41,25 +51,25 @@ export default function Navbar() {
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           <Link
-            href="#work"
+            href="/#work"
             className="font-mono text-xs uppercase tracking-[0.08em] font-medium text-foreground hover:text-accent transition-colors"
           >
             WORK
           </Link>
           <Link
-            href="#about"
+            href="/#about"
             className="font-mono text-xs uppercase tracking-[0.08em] font-medium text-foreground hover:text-accent transition-colors"
           >
             ABOUT
           </Link>
           <Link
-            href="#services"
+            href="/#services"
             className="font-mono text-xs uppercase tracking-[0.08em] font-medium text-foreground hover:text-accent transition-colors"
           >
             SERVICES
           </Link>
           <Link
-            href="#contact"
+            href="/contact"
             className="font-mono text-xs uppercase tracking-[0.08em] font-medium text-foreground hover:text-accent transition-colors"
           >
             CONTACT
@@ -69,7 +79,7 @@ export default function Navbar() {
         {/* Desktop Action CTA */}
         <div className="hidden md:flex items-center">
           <Link
-            href="#contact"
+            href="/contact"
             className="font-sans text-xs uppercase font-semibold tracking-[0.06em] px-5 py-2.5 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-none flex items-center gap-1.5"
           >
             <span>START A PROJECT</span>
@@ -108,28 +118,28 @@ export default function Navbar() {
         <div className="md:hidden bg-background border-b border-border-light px-6 py-8 flex flex-col gap-6">
           <nav className="flex flex-col gap-5">
             <Link
-              href="#work"
+              href="/#work"
               onClick={() => setMobileMenuOpen(false)}
               className="font-mono text-sm uppercase tracking-[0.08em] font-medium text-foreground hover:text-accent"
             >
               01 // WORK
             </Link>
             <Link
-              href="#about"
+              href="/#about"
               onClick={() => setMobileMenuOpen(false)}
               className="font-mono text-sm uppercase tracking-[0.08em] font-medium text-foreground hover:text-accent"
             >
               02 // ABOUT
             </Link>
             <Link
-              href="#services"
+              href="/#services"
               onClick={() => setMobileMenuOpen(false)}
               className="font-mono text-sm uppercase tracking-[0.08em] font-medium text-foreground hover:text-accent"
             >
               03 // SERVICES
             </Link>
             <Link
-              href="#contact"
+              href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="font-mono text-sm uppercase tracking-[0.08em] font-medium text-foreground hover:text-accent"
             >
@@ -137,7 +147,7 @@ export default function Navbar() {
             </Link>
           </nav>
           <Link
-            href="#contact"
+            href="/contact"
             onClick={() => setMobileMenuOpen(false)}
             className="w-full text-center font-sans text-xs uppercase font-semibold tracking-[0.06em] py-3 bg-foreground text-background hover:bg-accent transition-colors rounded-none"
           >

@@ -2,6 +2,16 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedWork from "@/components/FeaturedWork";
 import ProjectRail from "@/components/ProjectRail";
+import ShortFormShowcase from "@/components/ShortFormShowcase";
+import ThumbnailGallery from "@/components/ThumbnailGallery";
+import IntroShowcase from "@/components/IntroShowcase";
+import AboutSection from "@/components/AboutSection";
+import WhyHireMe from "@/components/WhyHireMe";
+import ServicesSection from "@/components/ServicesSection";
+import WorkingProcess from "@/components/WorkingProcess";
+import EngagementModels from "@/components/EngagementModels";
+import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -19,21 +29,36 @@ export default function Home() {
         {/* Section 3: Additional Work (Horizontal Snapping Project Rail) */}
         <ProjectRail />
 
-        {/* Section 4 Anchor Placeholder: Short-Form Content (Coming in Phase 3) */}
-        <div id="shorts" className="sr-only">Short-Form Content</div>
+        {/* Section 4: Short-Form Video Showcase (Dark Cinema Canvas) */}
+        <ShortFormShowcase />
 
-        {/* Section 5 Anchor Placeholder: Thumbnails (Coming in Phase 3) */}
-        <div id="thumbnails" className="sr-only">Thumbnail Design</div>
+        {/* Section 5: Thumbnail Design Gallery (with Lightbox Modal) */}
+        <ThumbnailGallery />
 
-        {/* Section 7 Anchor Placeholder: About (Coming in Phase 4) */}
-        <div id="about" className="sr-only">About By Design Studio</div>
+        {/* Section 6: YouTube Intro Showcase (Motion Title Sequences) */}
+        <IntroShowcase />
 
-        {/* Section 9 Anchor Placeholder: Services (Coming in Phase 5) */}
-        <div id="services" className="sr-only">Services</div>
+        {/* Section 7: About By Design Studio (Static Brand Philosophy) */}
+        <AboutSection />
 
-        {/* Section 12 Anchor Placeholder: Contact (Coming in Phase 8) */}
-        <div id="contact" className="sr-only">Contact</div>
+        {/* Section 8: Why Hire Me / Creative Approach (Dark Canvas + Raw vs Graded) */}
+        <WhyHireMe />
+
+        {/* Section 9: Services Ledger (5 Post-Production Offerings) */}
+        <ServicesSection />
+
+        {/* Section 10: Working Process (5-Stage Sequential Pipeline) */}
+        <WorkingProcess />
+
+        {/* Section 11: Engagement Models (3 Collaboration Structures) */}
+        <EngagementModels />
+
+        {/* Section 12: Final Call To Action (Cinema Dark Conversion Banner) */}
+        <FinalCTA />
       </main>
+
+      {/* Section 13: Technical Broadsheet Footer */}
+      <Footer />
     </div>
   );
 }

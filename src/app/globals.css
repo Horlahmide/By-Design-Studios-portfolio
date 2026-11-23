@@ -83,6 +83,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchored section headings clear of the fixed navbar */
+  scroll-padding-top: 88px;
 }
 
 body {
@@ -129,9 +131,92 @@ video {
   color: #ffffff;
 }
 
-/* Respect reduced-motion preferences for native scrolling */
+/* =========================================
+   MOTION: SCROLL REVEAL + HERO ENTRANCE
+   GPU-only (opacity + transform). Uses CSS animations with
+   `backwards` fill so no transform remains after the reveal
+   (keeps fixed-position modals and hover transitions intact).
+========================================= */
+
+:root {
+  --reveal-distance: 18px;
+  --reveal-duration: 600ms;
+  --reveal-stagger: 90ms;
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Phones: faster, shorter motion and no stagger lag for thumb-scrolling */
+@media (max-width: 767px) {
+  :root {
+    --reveal-distance: 12px;
+    --reveal-duration: 450ms;
+    --reveal-stagger: 0ms;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-distance), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Hidden only once JS has confirmed reveal support (html.reveal-ready) */
+html.reveal-ready [data-reveal]:not([data-revealed]),
+html.reveal-ready [data-reveal-stagger]:not([data-revealed]) > * {
+  opacity: 0;
+}
+
+html.reveal-ready [data-reveal][data-revealed],
+html.reveal-ready [data-reveal-stagger][data-revealed] > * {
+  animation: reveal-up var(--reveal-duration) var(--reveal-ease) backwards;
+}
+
+html.reveal-ready [data-reveal-stagger][data-revealed] > :nth-child(2) {
+  animation-delay: calc(var(--reveal-stagger) * 1);
+}
+html.reveal-ready [data-reveal-stagger][data-revealed] > :nth-child(3) {
+  animation-delay: calc(var(--reveal-stagger) * 2);
+}
+html.reveal-ready [data-reveal-stagger][data-revealed] > :nth-child(4) {
+  animation-delay: calc(var(--reveal-stagger) * 3);
+}
+html.reveal-ready [data-reveal-stagger][data-revealed] > :nth-child(n + 5) {
+  animation-delay: calc(var(--reveal-stagger) * 4);
+}
+
+/* Hero entrance (INTERACTION_SPEC §5.2): kicker/headline → copy/CTAs → portrait.
+   Short delays so visitors never wait to interact. */
+.hero-enter {
+  animation: reveal-up 650ms var(--reveal-ease) backwards;
+}
+.hero-enter-1 {
+  animation-delay: 40ms;
+}
+.hero-enter-2 {
+  animation-delay: 140ms;
+}
+.hero-enter-3 {
+  animation-delay: 240ms;
+}
+.hero-enter-4 {
+  animation-delay: 320ms;
+}
+
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .hero-enter,
+  html.reveal-ready [data-reveal],
+  html.reveal-ready [data-reveal-stagger] > * {
+    animation: none !important;
+    opacity: 1 !important;
   }
 }

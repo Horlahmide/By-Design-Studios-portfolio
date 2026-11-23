@@ -48,15 +48,15 @@ export default function ThumbnailGallery() {
           </p>
         </div>
 
-        {/* Primary Asymmetric Grid (7 cols Hero / 5 cols Stacked) */}
-        <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 mb-8">
+        {/* Primary Asymmetric Grid (Full-width Hero + 2-Col Row on Tablet; 7/5 Split on Desktop) */}
+        <div data-reveal-stagger className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-8 items-start">
           {/* 7-Col Large Hero Thumbnail */}
           {heroItem && (
             <div
               onClick={() => handleOpen(0)}
-              className="md:col-span-7 bg-surface-container/20 border border-border-light p-4 lg:p-5 flex flex-col group cursor-pointer hover:border-foreground/40 transition-colors"
+              className="lg:col-span-7 bg-surface-container/20 rounded-2xl border border-border-light p-4 lg:p-5 flex flex-col group cursor-pointer hover:border-foreground/30 hover:shadow-[0_12px_32px_rgba(23,23,23,0.06)] transition-all duration-300"
             >
-              <div className="relative aspect-video w-full overflow-hidden bg-black mb-4 border border-border-subtle">
+              <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black mb-4 border border-border-subtle">
                 <Image
                   src={heroItem.imageUrl}
                   alt={heroItem.title}
@@ -66,7 +66,7 @@ export default function ThumbnailGallery() {
                 />
                 <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-300" />
                 {heroItem.ctrBadge && (
-                  <div className="absolute top-3 left-3 bg-foreground text-background font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-2.5 py-0.5 font-medium">
+                  <div className="absolute top-3 left-3 bg-foreground/90 backdrop-blur-sm text-background font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-3 py-1 rounded-full font-medium">
                     {heroItem.ctrBadge}
                   </div>
                 )}
@@ -90,15 +90,15 @@ export default function ThumbnailGallery() {
             </div>
           )}
 
-          {/* 5-Col Stacked Thumbnails */}
-          <div className="md:col-span-5 flex flex-col gap-6">
+          {/* 5-Col Stacked Thumbnails (2-Col Row on Tablet, Vertical Stack on Desktop) */}
+          <div className="lg:col-span-5 grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col gap-6">
             {stackedItems.map((item, idx) => (
               <div
                 key={item.id}
                 onClick={() => handleOpen(idx + 1)}
-                className="bg-surface-container/20 border border-border-light p-4 flex flex-col group cursor-pointer hover:border-foreground/40 transition-colors flex-1"
+                className="bg-surface-container/20 rounded-2xl border border-border-light p-4 flex flex-col group cursor-pointer hover:border-foreground/30 hover:shadow-[0_12px_32px_rgba(23,23,23,0.06)] transition-all duration-300 flex-1"
               >
-                <div className="relative aspect-video w-full overflow-hidden bg-black mb-3 border border-border-subtle">
+                <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black mb-3 border border-border-subtle">
                   <Image
                     src={item.imageUrl}
                     alt={item.title}
@@ -108,7 +108,7 @@ export default function ThumbnailGallery() {
                   />
                   <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-300" />
                   {item.coverTag && (
-                    <div className="absolute top-2.5 left-2.5 bg-foreground text-background font-mono text-[10px] uppercase tracking-[0.08em] px-2 py-0.5">
+                    <div className="absolute top-2.5 left-2.5 bg-foreground/90 backdrop-blur-sm text-background font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-0.5 rounded-full">
                       {item.coverTag}
                     </div>
                   )}
@@ -140,9 +140,9 @@ export default function ThumbnailGallery() {
                 <div
                   key={item.id}
                   onClick={() => handleOpen(idx + 3)}
-                  className="bg-surface-container/20 border border-border-light p-4 flex flex-col group cursor-pointer hover:border-foreground/40 transition-colors"
+                  className="bg-surface-container/20 rounded-2xl border border-border-light p-4 flex flex-col group cursor-pointer hover:border-foreground/30 hover:shadow-[0_12px_32px_rgba(23,23,23,0.06)] transition-all duration-300"
                 >
-                  <div className="relative aspect-video w-full overflow-hidden bg-black mb-3 border border-border-subtle">
+                  <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black mb-3 border border-border-subtle">
                     <Image
                       src={item.imageUrl}
                       alt={item.title}
@@ -152,7 +152,7 @@ export default function ThumbnailGallery() {
                     />
                     <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-300" />
                     {item.coverTag && (
-                      <div className="absolute top-2 left-2 bg-foreground text-background font-mono text-[10px] uppercase tracking-[0.08em] px-2 py-0.5">
+                      <div className="absolute top-2.5 left-2.5 bg-foreground/90 backdrop-blur-sm text-background font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-0.5 rounded-full">
                         {item.coverTag}
                       </div>
                     )}

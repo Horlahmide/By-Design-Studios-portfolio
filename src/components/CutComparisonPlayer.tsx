@@ -334,19 +334,19 @@ export default function CutComparisonPlayer({
 
     return (
       <div
-        className={`relative flex flex-col bg-black ${
+        className={`relative flex flex-col p-3.5 sm:p-4 bg-[#16171a] ${
           side === "raw"
-            ? "border-b md:border-b-0 md:border-r border-border-dark"
+            ? "border-b md:border-b-0 md:border-r border-white/10"
             : ""
         }`}
       >
         {/* Top Slate Header Strip */}
-        <div className="flex items-center justify-between gap-2 px-3.5 sm:px-4 py-2.5 bg-charcoal border-b border-border-dark">
+        <div className="flex items-center justify-between gap-2 pb-3">
           <span
-            className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-2.5 py-0.5 ${
+            className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-3 py-1 rounded-full ${
               isGraded
-                ? "bg-accent text-background font-semibold"
-                : "bg-white/10 text-background border border-white/15"
+                ? "bg-accent text-background font-medium shadow-sm"
+                : "bg-white/[0.08] text-background/90 border border-white/15"
             }`}
           >
             {data.badge}
@@ -356,15 +356,15 @@ export default function CutComparisonPlayer({
             href={`https://www.youtube.com/watch?v=${data.youtubeId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#8E8B82] hover:text-background transition-colors whitespace-nowrap"
+            className="font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-1 rounded-full text-[#8E8B82] hover:text-background hover:bg-white/[0.06] transition-colors whitespace-nowrap"
             title={`Watch ${data.title} directly on YouTube`}
           >
             WATCH ON YT ↗
           </a>
         </div>
 
-        {/* 16:9 Media Viewport */}
-        <div className="relative aspect-video w-full bg-black overflow-hidden">
+        {/* 16:9 Concentric Rounded Media Viewport */}
+        <div className="relative aspect-video w-full rounded-xl bg-gradient-to-br from-[#1b1c20] via-[#111214] to-black border border-white/10 overflow-hidden">
           {!hasActivated || loadError ? (
             <>
               <Image
@@ -372,25 +372,26 @@ export default function CutComparisonPlayer({
                 alt={data.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
+                className="object-cover object-center text-transparent"
               />
-              <div className="absolute inset-0 bg-charcoal/35" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/25" />
 
               {loadError ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-black/75 z-10">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent mb-2">
-                    PLAYBACK NOTICE
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-5 text-center bg-charcoal/80 backdrop-blur-sm z-10">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-accent mb-1.5">
+                    SCREENING ROOM NOTICE
                   </span>
-                  <p className="font-sans text-xs text-background/80 mb-3 max-w-[34ch]">
-                    {loadError}
+                  <p className="font-sans text-xs sm:text-sm text-background/80 mb-4 max-w-[34ch] leading-relaxed">
+                    Embedded stream unavailable on this network. Open directly on YouTube for full HD playback.
                   </p>
                   <a
                     href={`https://www.youtube.com/watch?v=${data.youtubeId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-[11px] uppercase tracking-[0.08em] px-4 py-2 bg-accent text-background hover:bg-background hover:text-foreground transition-colors"
+                    className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] px-5 py-2.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors shadow-md"
                   >
-                    WATCH ON YOUTUBE ↗
+                    <span>WATCH ON YOUTUBE</span>
+                    <span>↗</span>
                   </a>
                 </div>
               ) : (
@@ -401,10 +402,10 @@ export default function CutComparisonPlayer({
                   className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   <span
-                    className={`inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] px-4 py-2.5 border transition-colors ${
+                    className={`inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] px-5 py-2.5 rounded-full border backdrop-blur-md transition-all duration-200 ${
                       isGraded
-                        ? "bg-accent border-accent text-background group-hover:bg-background group-hover:text-foreground"
-                        : "bg-charcoal/90 border-white/25 text-background group-hover:bg-accent group-hover:border-accent"
+                        ? "bg-accent border-accent text-background ring-4 ring-accent/20 group-hover:bg-background group-hover:text-foreground group-hover:border-background"
+                        : "bg-charcoal/80 border-white/25 text-background group-hover:bg-accent group-hover:border-accent"
                     }`}
                   >
                     <span>▶</span>
@@ -424,7 +425,7 @@ export default function CutComparisonPlayer({
         </div>
 
         {/* Lower Technical Spec Line */}
-        <div className="px-3.5 sm:px-4 py-2.5 bg-charcoal/90 border-t border-border-dark flex items-center justify-between gap-2">
+        <div className="pt-3 flex items-center justify-between gap-2">
           <span
             className={`font-mono text-[10px] uppercase tracking-[0.08em] truncate ${
               isGraded ? "text-accent" : "text-[#8E8B82]"
@@ -436,10 +437,10 @@ export default function CutComparisonPlayer({
             <button
               type="button"
               onClick={() => handleToggleAudio(side)}
-              className={`font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-1 border transition-colors cursor-pointer shrink-0 ${
+              className={`font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full border transition-colors cursor-pointer shrink-0 ${
                 activeAudio === side
                   ? "bg-accent border-accent text-background"
-                  : "border-white/15 text-background/80 hover:border-background hover:text-background"
+                  : "border-white/15 bg-white/[0.04] text-background/85 hover:border-background hover:text-background"
               }`}
             >
               {activeAudio === side ? "🔊 AUDIO ON" : "🔇 UNMUTE"}
@@ -454,7 +455,7 @@ export default function CutComparisonPlayer({
     <div
       ref={wrapperRef}
       data-reveal
-      className="w-full border border-border-dark mb-16 lg:mb-20 overflow-hidden bg-black"
+      className="w-full rounded-2xl border border-white/12 mb-16 lg:mb-20 overflow-hidden bg-[#16171a] shadow-[0_24px_64px_rgba(0,0,0,0.45)]"
     >
       {/* Paired Side-by-Side Comparison Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2">
@@ -463,10 +464,10 @@ export default function CutComparisonPlayer({
       </div>
 
       {/* Shared Studio Comparison Control Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-charcoal border-t border-border-dark">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-5 py-3.5 bg-charcoal/95 border-t border-white/10">
         <div className="flex items-center gap-2.5">
           <span
-            className={`w-2 h-2 shrink-0 ${
+            className={`w-2 h-2 rounded-full shrink-0 ${
               hasActivated && !loadError
                 ? "bg-accent animate-pulse"
                 : "bg-white/30"
@@ -490,7 +491,7 @@ export default function CutComparisonPlayer({
             <button
               type="button"
               onClick={handleManualActivate}
-              className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-3.5 py-1.5 bg-accent text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer"
+              className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-4 py-1.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer"
             >
               ▶ PLAY BOTH SIDE-BY-SIDE
             </button>
@@ -499,7 +500,7 @@ export default function CutComparisonPlayer({
               <button
                 type="button"
                 onClick={handleSyncRestart}
-                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-3.5 py-1.5 bg-white/10 hover:bg-accent text-background transition-colors cursor-pointer"
+                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-4 py-1.5 rounded-full bg-white/10 hover:bg-accent text-background transition-colors cursor-pointer"
                 title="Restart both Raw and Final videos from 0:00 together"
               >
                 ⟳ SYNC RESTART BOTH

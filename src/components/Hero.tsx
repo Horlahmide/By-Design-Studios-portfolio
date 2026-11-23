@@ -3,16 +3,16 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex flex-col border-b border-border-light overflow-hidden">
+    <section className="relative lg:min-h-[calc(100vh-80px)] flex flex-col border-b border-border-light overflow-hidden">
       {/* Spacer to account for fixed navbar height */}
       <div className="shrink-0 h-[72px] md:h-[80px]" />
 
-      <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 flex-1 flex items-center py-8 lg:py-12">
-        {/* Two-Column Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center w-full">
+      <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 flex-1 flex items-center py-10 md:py-14 lg:py-12">
+        {/* Two-Column Main Content Grid (Activates at Tablet md+) */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 lg:gap-10 xl:gap-14 items-center w-full">
           
           {/* Left Column: Brand Thesis, Narrative & Actions */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+          <div className="md:col-span-7 flex flex-col justify-center">
             {/* Category Kicker */}
             <div className="hero-enter hero-enter-1 font-mono text-[10px] sm:text-xs uppercase tracking-[0.1em] text-accent font-medium mb-2.5">
               01 // CREATIVE POST-PRODUCTION & STORYTELLING
@@ -32,11 +32,11 @@ export default function Hero() {
               overshadowing it—crafting videos that feel authentic, cohesive, and uniquely yours.
             </p>
 
-            {/* Dual Rectangular Actions */}
+            {/* Dual Editorial Pill Actions */}
             <div className="hero-enter hero-enter-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-5 sm:mb-6">
               <Link
                 href="#work"
-                className="font-sans text-xs uppercase font-semibold tracking-[0.06em] px-6 py-3 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-none text-center flex items-center justify-center gap-2 group"
+                className="font-sans text-xs uppercase font-semibold tracking-[0.06em] px-7 py-3 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-full text-center flex items-center justify-center gap-2 group"
               >
                 <span>EXPLORE WORK</span>
                 <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -46,7 +46,7 @@ export default function Hero() {
 
               <Link
                 href="/contact"
-                className="font-sans text-xs uppercase font-semibold tracking-[0.06em] px-6 py-3 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-150 rounded-none text-center"
+                className="font-sans text-xs uppercase font-semibold tracking-[0.06em] px-7 py-3 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-150 rounded-full text-center"
               >
                 LET&apos;S WORK TOGETHER
               </Link>
@@ -82,10 +82,10 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Creator Editorial Photo */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center">
-            <div className="hero-enter hero-enter-4 relative w-full max-w-[310px] sm:max-w-[340px] xl:max-w-[380px]">
-              {/* Image Container with 1px Hairline Frame */}
-              <div className="relative aspect-[4/5] w-full border border-border-light overflow-hidden bg-surface-container">
+          <div className="md:col-span-5 flex flex-col items-center md:items-end justify-center">
+            <div className="hero-enter hero-enter-4 relative w-full max-w-[300px] md:max-w-[300px] lg:max-w-[340px] xl:max-w-[380px]">
+              {/* Image Container with Soft Editorial Frame */}
+              <div className="relative aspect-[4/5] w-full rounded-2xl border border-border-light overflow-hidden bg-surface-container shadow-[0_16px_44px_rgba(23,23,23,0.08)]">
                 <Image
                   src="/images/creator-portrait.jpeg"
                   alt="Lead Editor and Storyteller at By Design Studio"
@@ -96,11 +96,11 @@ export default function Hero() {
                 />
               </div>
               {/* Technical Metadata Annotation */}
-              <div className="flex items-center justify-between pt-2 px-0.5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-text-muted">
+              <div className="flex items-center justify-between gap-2 pt-2.5 px-0.5">
+                <span className="font-mono text-[9px] lg:text-[10px] uppercase tracking-[0.08em] text-text-muted whitespace-nowrap">
                   [LEAD EDITOR & STORYTELLER]
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent">
+                <span className="font-mono text-[9px] lg:text-[10px] uppercase tracking-[0.08em] text-accent whitespace-nowrap">
                   REC // 4K 24FPS
                 </span>
               </div>

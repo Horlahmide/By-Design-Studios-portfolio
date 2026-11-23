@@ -217,7 +217,7 @@ export default function VideoPlayerFrame({
   return (
     <div
       data-yt={youtubeId}
-      className={`group relative ${aspectClassName} w-full overflow-hidden border border-border-light bg-charcoal select-none`}
+      className={`group relative ${aspectClassName} w-full rounded-2xl overflow-hidden border border-border-light bg-charcoal shadow-[0_12px_36px_rgba(23,23,23,0.08)] select-none`}
     >
       {!isPlaying ? (
         <>
@@ -228,14 +228,14 @@ export default function VideoPlayerFrame({
             sizes={sizes}
             className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
           />
-          <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-charcoal/10 transition-colors duration-300 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/45 via-charcoal/15 to-charcoal/10 group-hover:from-charcoal/35 transition-colors duration-300 pointer-events-none" />
 
           <div
             className={`absolute ${
               slatePosition === "bottom-left"
                 ? "bottom-4 sm:bottom-6 left-4 sm:left-6"
                 : "top-4 left-4"
-            } font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] bg-charcoal/85 backdrop-blur-sm text-background px-3 py-1 border border-white/10 pointer-events-none z-10`}
+            } font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] bg-charcoal/80 backdrop-blur-md text-background px-3.5 py-1.5 rounded-full border border-white/15 pointer-events-none z-10`}
           >
             {editSlate}
           </div>
@@ -261,7 +261,7 @@ export default function VideoPlayerFrame({
                 type="button"
                 onClick={onOpenTheater}
                 aria-label={`Open ${title} in cinema theater modal`}
-                className="hidden sm:inline-flex items-center justify-center min-h-[38px] px-3 font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/85 text-background/90 border border-white/15 hover:bg-background hover:text-foreground transition-colors cursor-pointer"
+                className="hidden sm:inline-flex items-center justify-center min-h-[38px] px-3.5 rounded-full font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/80 backdrop-blur-md text-background/95 border border-white/20 hover:bg-background hover:text-foreground transition-colors cursor-pointer"
                 title="Watch in Cinema Theater Mode"
               >
                 <span>THEATER ⤢</span>
@@ -271,13 +271,13 @@ export default function VideoPlayerFrame({
             <button
               type="button"
               onClick={handleStartPlayback}
-              className={`inline-flex items-center gap-2 min-h-[40px] font-mono text-xs uppercase tracking-[0.06em] cursor-pointer transition-all duration-200 ${
+              className={`inline-flex items-center gap-2 min-h-[40px] rounded-full font-mono text-[11px] uppercase tracking-[0.06em] cursor-pointer transition-all duration-200 shadow-md ${
                 triggerVariant === "accent"
-                  ? "bg-accent text-background px-4 py-2 hover:bg-background hover:text-foreground"
-                  : "bg-charcoal/90 text-background px-3.5 py-2 opacity-95 group-hover:opacity-100 group-hover:bg-accent"
+                  ? "bg-accent text-background px-5 py-2 hover:bg-background hover:text-foreground"
+                  : "bg-charcoal/85 backdrop-blur-md text-background border border-white/15 px-4 py-2 opacity-95 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent"
               }`}
             >
-              <span className="text-xs">▶</span>
+              <span className="text-[11px]">▶</span>
               <span>{triggerLabel}</span>
             </button>
           </div>
@@ -285,9 +285,9 @@ export default function VideoPlayerFrame({
       ) : (
         <div className="relative w-full h-full bg-charcoal text-background flex flex-col justify-between">
           {/* Top Screening Control Strip */}
-          <div className="relative z-30 flex items-center justify-between px-3 sm:px-4 py-2 bg-black/85 border-b border-white/10 backdrop-blur-sm">
-            <div className="flex items-center gap-2 overflow-hidden">
-              <span className="w-2 h-2 bg-accent shrink-0 animate-pulse" />
+          <div className="relative z-30 flex items-center justify-between px-3.5 sm:px-4 py-2.5 bg-charcoal/90 border-b border-white/10 backdrop-blur-md">
+            <div className="flex items-center gap-2.5 overflow-hidden">
+              <span className="w-2 h-2 rounded-full bg-accent shrink-0 animate-pulse" />
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] text-background truncate">
                 {`NOW SCREENING // ${title}`}
               </span>
@@ -297,14 +297,14 @@ export default function VideoPlayerFrame({
               {/* Closed-Loop Resolution Badge */}
               {isAdapting ? (
                 <span
-                  className="font-mono text-[10px] uppercase tracking-[0.08em] px-2 py-0.5 border border-white/10 bg-white/5 text-[#8E8B82] animate-pulse"
+                  className="font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-0.5 rounded-full border border-white/10 bg-white/5 text-[#8E8B82] animate-pulse"
                   title="Measuring connection speed and requesting optimal stream"
                 >
                   {networkTarget ? `${networkTarget.label} (ADAPTING...)` : "ADAPTING..."}
                 </span>
               ) : badgeInfo ? (
                 <span
-                  className={`font-mono text-[10px] uppercase tracking-[0.08em] px-2 py-0.5 border ${
+                  className={`font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-0.5 rounded-full border ${
                     badgeInfo.isHd
                       ? "text-accent border-accent/40 bg-accent/10"
                       : "text-white/75 border-white/15 bg-white/5"
@@ -328,7 +328,7 @@ export default function VideoPlayerFrame({
                   href={`https://www.youtube.com/watch?v=${youtubeId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden md:inline-flex font-mono text-[10px] uppercase tracking-[0.08em] px-2 py-1 bg-white/10 hover:bg-white/20 text-background transition-colors"
+                  className="hidden md:inline-flex font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-background transition-colors"
                   title="Open directly in YouTube for manual 1080p lock"
                 >
                   WATCH ON YT ↗
@@ -339,7 +339,7 @@ export default function VideoPlayerFrame({
                 <button
                   type="button"
                   onClick={handleSwitchToTheater}
-                  className="font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-1 bg-white/10 hover:bg-accent text-background transition-colors cursor-pointer"
+                  className="font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-accent text-background transition-colors cursor-pointer"
                 >
                   THEATER ⤢
                 </button>
@@ -349,7 +349,7 @@ export default function VideoPlayerFrame({
                 type="button"
                 onClick={handleStopPlayback}
                 aria-label="Close video player"
-                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-2.5 py-1 bg-white/10 hover:bg-background hover:text-foreground text-background transition-colors cursor-pointer"
+                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-background hover:text-foreground text-background transition-colors cursor-pointer"
               >
                 ✕ CLOSE
               </button>
@@ -361,19 +361,22 @@ export default function VideoPlayerFrame({
             <div className="relative flex-1 w-full h-full bg-black overflow-hidden">
               <div ref={containerRef} className="w-full h-full" />
               {playerError && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/85 text-background p-6 text-center z-20">
-                  <div>
-                    <p className="font-mono text-xs text-accent uppercase mb-2">
+                <div className="absolute inset-0 flex items-center justify-center bg-charcoal/90 backdrop-blur-sm text-background p-6 text-center z-20">
+                  <div className="max-w-sm">
+                    <p className="font-mono text-[10px] tracking-[0.12em] text-accent uppercase mb-2">
                       Screening Playback Notice
                     </p>
-                    <p className="font-sans text-sm text-background/80 mb-4">{playerError}</p>
+                    <p className="font-sans text-sm text-background/80 mb-5 leading-relaxed">
+                      Embedded stream unavailable on this network. Open directly on YouTube for full HD playback.
+                    </p>
                     <a
                       href={`https://www.youtube.com/watch?v=${youtubeId}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block font-mono text-xs uppercase px-4 py-2 bg-accent text-background"
+                      className="inline-flex items-center gap-1.5 font-mono text-xs uppercase px-5 py-2.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors"
                     >
-                      Watch on YouTube ↗
+                      <span>Watch on YouTube</span>
+                      <span>↗</span>
                     </a>
                   </div>
                 </div>
@@ -389,7 +392,7 @@ export default function VideoPlayerFrame({
                 className="object-cover object-center opacity-20 scale-105 blur-[2px] pointer-events-none"
               />
               <div className="absolute inset-0 bg-charcoal/80 pointer-events-none" />
-              <div className="relative z-20 max-w-md mx-auto border border-white/15 bg-black/75 p-4 sm:p-6 backdrop-blur-md">
+              <div className="relative z-20 max-w-md mx-auto rounded-2xl border border-white/15 bg-black/75 p-5 sm:p-6 backdrop-blur-md">
                 <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-accent mb-2">
                   {`SCREENING ROOM // ${category || "EDITORIAL CUT"}`}
                 </div>

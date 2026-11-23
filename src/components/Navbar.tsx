@@ -43,7 +43,7 @@ export default function Navbar() {
           <span className="font-display text-xl md:text-2xl font-semibold tracking-[-0.03em] text-foreground">
             BY DESIGN
           </span>
-          <span className="font-mono text-[10px] md:text-[11px] font-medium tracking-[0.12em] px-2 py-0.5 border border-border-light text-foreground uppercase">
+          <span className="font-mono text-[10px] md:text-[11px] font-medium tracking-[0.12em] px-2.5 py-0.5 rounded-full border border-border-light text-foreground uppercase">
             STUDIO
           </span>
         </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <Link
             href="/contact"
-            className="font-sans text-xs uppercase font-semibold tracking-[0.06em] px-5 py-2.5 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-none flex items-center gap-1.5"
+            className="font-sans text-xs uppercase font-semibold tracking-[0.06em] px-5 py-2.5 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-full flex items-center gap-1.5"
           >
             <span>START A PROJECT</span>
             <span className="text-sm leading-none">↗</span>
@@ -91,7 +91,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden flex flex-col justify-center items-center w-9 h-9 border border-border-light rounded-none gap-1 p-2"
+          className="md:hidden flex flex-col justify-center items-center w-9 h-9 border border-border-light rounded-xl gap-1 p-2"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
         >
@@ -149,7 +149,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full text-center font-sans text-xs uppercase font-semibold tracking-[0.06em] py-3 bg-foreground text-background hover:bg-accent transition-colors rounded-none"
+            className="w-full text-center font-sans text-xs uppercase font-semibold tracking-[0.06em] py-3 bg-foreground text-background hover:bg-accent transition-colors rounded-full"
           >
             START A PROJECT ↗
           </Link>

@@ -178,7 +178,7 @@ export default async function ProjectDetailPage({
                   {deliverablesList.map((item) => (
                     <span
                       key={item}
-                      className="font-mono text-[11px] uppercase tracking-[0.06em] bg-background border border-border-light px-3 py-1.5 text-foreground"
+                      className="font-mono text-[11px] uppercase tracking-[0.06em] bg-background border border-border-light px-3.5 py-1.5 rounded-full text-foreground"
                     >
                       {item}
                     </span>
@@ -188,7 +188,7 @@ export default async function ProjectDetailPage({
             </div>
 
             {/* Right 5 Columns: Timeline & Finishing Highlights */}
-            <div className="lg:col-span-5 bg-background border border-border-light p-6 sm:p-8">
+            <div className="lg:col-span-5 bg-background rounded-2xl border border-border-light p-6 sm:p-8 shadow-[0_10px_28px_rgba(23,23,23,0.04)]">
               <span className="font-mono text-xs uppercase tracking-[0.1em] text-accent font-medium block mb-2">
                 {"02 // TIMELINE & FINISHING"}
               </span>
@@ -229,7 +229,7 @@ export default async function ProjectDetailPage({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <Link
               href={`/work/${prev.slug}`}
-              className="group border border-border-light p-6 hover:border-foreground transition-colors flex flex-col justify-between"
+              className="group rounded-2xl border border-border-light p-6 hover:border-foreground/40 hover:shadow-[0_10px_28px_rgba(23,23,23,0.05)] transition-all flex flex-col justify-between"
             >
               <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted group-hover:text-accent transition-colors mb-2">
                 ← PREVIOUS PROJECT
@@ -246,7 +246,7 @@ export default async function ProjectDetailPage({
 
             <Link
               href={`/work/${next.slug}`}
-              className="group border border-border-light p-6 hover:border-foreground transition-colors flex flex-col justify-between sm:text-right"
+              className="group rounded-2xl border border-border-light p-6 hover:border-foreground/40 hover:shadow-[0_10px_28px_rgba(23,23,23,0.05)] transition-all flex flex-col justify-between sm:text-right"
             >
               <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted group-hover:text-accent transition-colors mb-2">
                 NEXT PROJECT →
@@ -287,11 +287,11 @@ export default async function ProjectDetailPage({
               <article
                 key={item.id}
                 data-yt={item.youtubeId}
-                className="border border-border-light bg-background p-4 flex flex-col group hover:border-foreground/40 transition-colors"
+                className="rounded-2xl border border-border-light bg-background p-4 flex flex-col group hover:border-foreground/30 hover:shadow-[0_12px_32px_rgba(23,23,23,0.06)] transition-all duration-300"
               >
                 <Link
                   href={`/work/${item.slug}`}
-                  className="relative aspect-[16/9] w-full overflow-hidden mb-4 bg-surface-container border border-border-subtle block"
+                  className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-4 bg-surface-container border border-border-subtle block"
                 >
                   <Image
                     src={item.posterUrl}
@@ -300,7 +300,7 @@ export default async function ProjectDetailPage({
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
-                  <div className="absolute top-2.5 left-2.5 font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/85 text-background px-2.5 py-0.5">
+                  <div className="absolute top-2.5 left-2.5 font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/85 backdrop-blur-md text-background px-3 py-0.5 rounded-full">
                     {item.editSlate}
                   </div>
                 </Link>

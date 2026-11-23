@@ -15,7 +15,7 @@ export default function ServicesSection() {
           </h2>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 bg-foreground hover:bg-accent text-background px-6 py-3 font-mono text-xs uppercase tracking-[0.06em] transition-colors shrink-0 self-start md:self-auto rounded-none group cursor-pointer"
+            className="inline-flex items-center gap-1.5 bg-foreground hover:bg-accent text-background px-6 py-3 font-mono text-xs uppercase tracking-[0.06em] transition-colors shrink-0 self-start md:self-auto rounded-full group cursor-pointer"
           >
             <span>DISCUSS A PROJECT</span>
             <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -30,30 +30,30 @@ export default function ServicesSection() {
         {services.map((service) => (
           <div
             key={service.id}
-            className="py-8 lg:py-10 border-b border-border-subtle grid grid-cols-1 lg:grid-cols-12 gap-6 items-center group transition-colors hover:bg-surface-container/20 px-2 sm:px-4"
+            className="py-8 lg:py-10 border-b border-border-subtle grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-center group transition-colors hover:bg-surface-container/20 px-2 sm:px-4"
           >
             {/* Service Number & Title */}
-            <div className="lg:col-span-5 flex items-start gap-4 sm:gap-6">
+            <div className="md:col-span-5 flex items-start gap-4 sm:gap-5">
               <span className="font-mono text-sm text-accent font-medium pt-1 shrink-0">
                 {`${service.number} //`}
               </span>
-              <h3 className="font-display text-2xl sm:text-[28px] text-foreground font-normal leading-tight group-hover:text-accent transition-colors">
+              <h3 className="font-display text-2xl sm:text-[26px] lg:text-[28px] text-foreground font-normal leading-tight group-hover:text-accent transition-colors">
                 {service.title}
               </h3>
             </div>
 
             {/* Service Scope Description */}
-            <div className="lg:col-span-5">
+            <div className="md:col-span-5">
               <p className="font-sans text-sm text-text-subtle leading-relaxed max-w-[50ch]">
                 {service.description}
               </p>
             </div>
 
             {/* Direct Inquire Action */}
-            <div className="lg:col-span-2 text-left lg:text-right">
+            <div className="md:col-span-2 text-left md:text-right">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-foreground hover:text-accent uppercase transition-colors font-medium group-hover:translate-x-1 duration-150"
+                className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-foreground hover:text-accent uppercase transition-colors font-medium group-hover:translate-x-1 duration-150 whitespace-nowrap"
               >
                 <span>DISPATCH</span>
                 <span>→</span>

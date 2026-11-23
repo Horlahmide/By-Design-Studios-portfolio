@@ -5,31 +5,31 @@ export default function AboutSection() {
   return (
     <section id="about" className="w-full bg-surface-container/30 py-20 lg:py-28 border-b border-border-light">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        {/* Main Editorial Spread */}
-        <div data-reveal className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        {/* Main Editorial Spread (Side-by-Side from Tablet md+) */}
+        <div data-reveal className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Creator & Suite Frame */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative aspect-square w-full max-w-[460px] mx-auto lg:mx-0 overflow-hidden bg-surface-container border border-border-light p-2.5">
-              <div className="relative w-full h-full overflow-hidden bg-black">
+          <div className="md:col-span-5 lg:col-span-6 relative">
+            <div className="relative aspect-square w-full max-w-[420px] lg:max-w-[460px] mx-auto md:mx-0 rounded-2xl overflow-hidden bg-surface-container border border-border-light p-2.5 shadow-[0_16px_44px_rgba(23,23,23,0.07)]">
+              <div className="relative w-full h-full rounded-xl overflow-hidden bg-black">
                 <Image
                   src="/images/creator-portrait.jpeg"
                   alt="Lead Editor at By Design Studio"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 460px"
+                  sizes="(max-width: 768px) 100vw, 460px"
                   className="object-cover object-center grayscale contrast-110 hover:grayscale-0 transition-all duration-700 ease-out"
                 />
               </div>
             </div>
 
             {/* Post-Production Slate Tag */}
-            <div className="absolute -bottom-3 -right-3 hidden sm:block bg-foreground text-background p-4 border border-border-light font-mono text-[11px] uppercase tracking-[0.08em] shadow-xl">
+            <div className="absolute bottom-3 right-3 lg:-bottom-3 lg:-right-3 hidden sm:block bg-foreground text-background px-4 py-3 lg:px-5 lg:py-3.5 rounded-xl border border-border-light font-mono text-[10px] lg:text-[11px] uppercase tracking-[0.08em] shadow-xl">
               <span className="text-background block font-medium">CREATIVE POST-PRODUCTION</span>
               <span className="text-accent block mt-0.5">HIGH-RETENTION EDITORIAL</span>
             </div>
           </div>
 
           {/* Right Column: Brand Narrative & Philosophy */}
-          <div className="lg:col-span-6 flex flex-col justify-center">
+          <div className="md:col-span-7 lg:col-span-6 flex flex-col justify-center">
             <span className="font-mono text-xs uppercase tracking-[0.1em] text-accent font-medium block mb-2">
               07 // ABOUT BY DESIGN STUDIO
             </span>
@@ -54,7 +54,7 @@ export default function AboutSection() {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="#services"
-                className="inline-flex items-center gap-1.5 font-sans text-xs uppercase font-semibold tracking-[0.06em] px-6 py-3 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-none group"
+                className="inline-flex items-center gap-1.5 font-sans text-xs uppercase font-semibold tracking-[0.06em] px-7 py-3 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-full group"
               >
                 <span>EXPLORE SERVICES</span>
                 <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -63,7 +63,7 @@ export default function AboutSection() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1.5 font-sans text-xs uppercase font-semibold tracking-[0.06em] px-6 py-3 border border-border-light text-foreground hover:bg-foreground hover:text-background transition-all duration-150 rounded-none"
+                className="inline-flex items-center gap-1.5 font-sans text-xs uppercase font-semibold tracking-[0.06em] px-7 py-3 border border-border-light text-foreground hover:bg-foreground hover:text-background transition-all duration-150 rounded-full"
               >
                 LET&apos;S TALK
               </Link>

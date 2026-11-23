@@ -75,7 +75,7 @@ export default function ContactPage() {
             {/* Right 4 Columns: Editorial Dispatch Sidebar & Social Channels */}
             <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
               {/* Studio Philosophy Card */}
-              <div className="border border-border-light bg-surface-container/30 p-6 sm:p-8">
+              <div className="rounded-2xl border border-border-light bg-surface-container/30 p-6 sm:p-8">
                 <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent font-medium block mb-2">
                   {"STUDIO ETHOS"}
                 </span>
@@ -108,7 +108,7 @@ export default function ContactPage() {
               </div>
 
               {/* Direct Social Media & Email Channels Card */}
-              <div className="border border-border-light bg-background p-6 sm:p-8">
+              <div className="rounded-2xl border border-border-light bg-background p-6 sm:p-8">
                 <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-text-muted font-medium block mb-4">
                   {"DIRECT CHANNELS & HANDLES"}
                 </span>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                           ? "noopener noreferrer"
                           : undefined
                       }
-                      className="flex items-center justify-between border border-border-subtle p-3.5 hover:border-accent transition-colors group"
+                      className="flex items-center justify-between rounded-xl border border-border-subtle p-3.5 hover:border-accent transition-colors group"
                     >
                       <span className="font-sans text-xs uppercase font-semibold tracking-[0.06em] text-foreground group-hover:text-accent transition-colors">
                         {channel.label}

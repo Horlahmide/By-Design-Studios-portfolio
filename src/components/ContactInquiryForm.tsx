@@ -251,7 +251,7 @@ export default function ContactInquiryForm() {
   // THANK YOU CONFIRMATION STATE (Only shown when data.success === true)
   if (isSubmitted) {
     return (
-      <div className="w-full border border-border-light bg-background p-8 sm:p-12 lg:p-16">
+      <div className="w-full rounded-2xl border border-border-light bg-background p-8 sm:p-12 lg:p-16">
         <div className="max-w-2xl">
           <span className="font-mono text-xs uppercase tracking-[0.12em] text-accent font-medium block mb-3">
             {`INQUIRY DELIVERED // SENT TO ${contactConfig.studioEmail.toUpperCase()}`}
@@ -284,7 +284,7 @@ export default function ContactInquiryForm() {
           </div>
 
           {/* Optional Backup Actions */}
-          <div className="bg-surface-container/40 border border-border-subtle p-5 mb-8">
+          <div className="bg-surface-container/40 rounded-xl border border-border-subtle p-5 mb-8">
             <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-foreground font-semibold block mb-2">
               ✓ WEB3FORMS EMAIL DELIVERY CONFIRMED
             </span>
@@ -295,7 +295,7 @@ export default function ContactInquiryForm() {
               <button
                 type="button"
                 onClick={handleCopyBrief}
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-foreground text-background hover:bg-accent px-5 py-2.5 transition-colors cursor-pointer rounded-none"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-foreground text-background hover:bg-accent px-5 py-2.5 transition-colors cursor-pointer rounded-full"
               >
                 <span>
                   {copiedBrief ? "✓ COPIED TO CLIPBOARD" : "COPY INQUIRY BRIEF"}
@@ -305,7 +305,7 @@ export default function ContactInquiryForm() {
                 href={gmailWebHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-border-light bg-background text-foreground hover:border-foreground px-5 py-2.5 transition-colors rounded-none"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-border-light bg-background text-foreground hover:border-foreground px-5 py-2.5 transition-colors rounded-full"
               >
                 <span>OPEN IN GMAIL (BROWSER) ↗</span>
               </a>
@@ -339,7 +339,7 @@ export default function ContactInquiryForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="w-full border border-border-light bg-background p-6 sm:p-10 lg:p-12 space-y-12"
+      className="w-full rounded-2xl border border-border-light bg-background p-6 sm:p-10 lg:p-12 space-y-12"
     >
       {/* Hidden Honeypot Spam Protection per Web3Forms Docs */}
       <input
@@ -364,7 +364,7 @@ export default function ContactInquiryForm() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
           {/* 1.1 Full Name */}
           <div>
             <label
@@ -384,7 +384,7 @@ export default function ContactInquiryForm() {
               }}
               placeholder="Your full name"
               aria-invalid={!!errors.fullName}
-              className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors"
+              className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors"
             />
             {errors.fullName && (
               <p className="font-mono text-[11px] text-accent mt-1.5">
@@ -412,7 +412,7 @@ export default function ContactInquiryForm() {
               }}
               placeholder="you@example.com"
               aria-invalid={!!errors.email}
-              className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors"
+              className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors"
             />
             {errors.email && (
               <p className="font-mono text-[11px] text-accent mt-1.5">
@@ -422,7 +422,7 @@ export default function ContactInquiryForm() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
           {/* 1.3 Brand, Business or Creator Name */}
           <div>
             <label
@@ -442,7 +442,7 @@ export default function ContactInquiryForm() {
               }}
               placeholder="Your YouTube channel or brand name"
               aria-invalid={!!errors.brandName}
-              className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors"
+              className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors"
             />
             {errors.brandName && (
               <p className="font-mono text-[11px] text-accent mt-1.5">
@@ -468,7 +468,7 @@ export default function ContactInquiryForm() {
                 setForm({ ...form, socialLinks: e.target.value })
               }
               placeholder="youtube.com/@channel, instagram.com/..."
-              className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors"
+              className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors"
             />
           </div>
         </div>
@@ -502,7 +502,7 @@ export default function ContactInquiryForm() {
               return (
                 <label
                   key={service}
-                  className={`flex items-start gap-3.5 p-3.5 border cursor-pointer transition-colors ${
+                  className={`flex items-start gap-3.5 p-3.5 rounded-xl border cursor-pointer transition-colors ${
                     checked
                       ? "border-accent bg-accent/[0.06]"
                       : "border-border-light hover:border-foreground/40 bg-surface-container/15"
@@ -548,7 +548,7 @@ export default function ContactInquiryForm() {
                     setErrors({ ...errors, otherServiceText: "" });
                 }}
                 placeholder="Describe what you need edited or designed..."
-                className="w-full bg-transparent border border-border-light px-4 py-2.5 font-sans text-base sm:text-sm text-foreground focus:outline-none focus:border-accent rounded-none"
+                className="w-full bg-transparent border border-border-light px-4 py-2.5 font-sans text-base sm:text-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl"
               />
               {errors.otherServiceText && (
                 <p className="font-mono text-[11px] text-accent mt-1">
@@ -580,7 +580,7 @@ export default function ContactInquiryForm() {
             }}
             placeholder="Share your niche, audience, and content style..."
             aria-invalid={!!errors.brandAndContent}
-            className="w-full bg-transparent border border-border-light p-4 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors resize-y"
+            className="w-full bg-transparent border border-border-light p-4 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors resize-y"
           />
           {errors.brandAndContent && (
             <p className="font-mono text-[11px] text-accent mt-1.5">
@@ -610,7 +610,7 @@ export default function ContactInquiryForm() {
             }}
             placeholder="e.g., Editing takes too much time, keeping viewer retention high, consistent upload schedule..."
             aria-invalid={!!errors.biggestChallenge}
-            className="w-full bg-transparent border border-border-light p-4 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors resize-y"
+            className="w-full bg-transparent border border-border-light p-4 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors resize-y"
           />
           {errors.biggestChallenge && (
             <p className="font-mono text-[11px] text-accent mt-1.5">
@@ -640,7 +640,7 @@ export default function ContactInquiryForm() {
             }}
             placeholder="Share your vision and goals for your channel or brand..."
             aria-invalid={!!errors.goalsToAchieve}
-            className="w-full bg-transparent border border-border-light p-4 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors resize-y"
+            className="w-full bg-transparent border border-border-light p-4 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors resize-y"
           />
           {errors.goalsToAchieve && (
             <p className="font-mono text-[11px] text-accent mt-1.5">
@@ -675,7 +675,7 @@ export default function ContactInquiryForm() {
               return (
                 <label
                   key={option}
-                  className={`flex items-center gap-3 p-3.5 border cursor-pointer transition-colors ${
+                  className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-colors ${
                     selected
                       ? "border-accent bg-accent/[0.06]"
                       : "border-border-light hover:border-foreground/40 bg-surface-container/15"
@@ -728,7 +728,7 @@ export default function ContactInquiryForm() {
             }}
             placeholder="e.g., 1 long-form video per week + 4 Shorts per month"
             aria-invalid={!!errors.videoFrequency}
-            className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors"
+            className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors"
           />
           {errors.videoFrequency && (
             <p className="font-mono text-[11px] text-accent mt-1.5">
@@ -749,7 +749,7 @@ export default function ContactInquiryForm() {
               return (
                 <label
                   key={option}
-                  className={`flex items-center gap-3 p-3.5 border cursor-pointer transition-colors ${
+                  className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-colors ${
                     selected
                       ? "border-accent bg-accent/[0.06]"
                       : "border-border-light hover:border-foreground/40 bg-surface-container/15"
@@ -802,7 +802,7 @@ export default function ContactInquiryForm() {
             }}
             placeholder="Share your target per-project or monthly budget range"
             aria-invalid={!!errors.estimatedBudget}
-            className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors"
+            className="w-full bg-transparent border border-border-light px-4 py-3 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors"
           />
           {errors.estimatedBudget && (
             <p className="font-mono text-[11px] text-accent mt-1.5">
@@ -828,14 +828,14 @@ export default function ContactInquiryForm() {
               setForm({ ...form, additionalNotes: e.target.value })
             }
             placeholder="Reference channels, turnaround preferences, or any questions for us..."
-            className="w-full bg-transparent border border-border-light p-4 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent rounded-none transition-colors resize-y"
+            className="w-full bg-transparent border border-border-light p-4 font-sans text-base sm:text-[15px] text-foreground placeholder:text-text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl transition-colors resize-y"
           />
         </div>
       </fieldset>
 
       {/* Visible Error Alert if Web3Forms Returns an Error */}
       {submitError && (
-        <div className="border-2 border-accent bg-accent/[0.06] p-5 space-y-3">
+        <div className="rounded-xl border-2 border-accent bg-accent/[0.06] p-5 space-y-3">
           <div className="font-mono text-xs uppercase tracking-[0.08em] text-accent font-semibold">
             {"DELIVERY NOTICE // "}{submitError}
           </div>
@@ -844,13 +844,13 @@ export default function ContactInquiryForm() {
               href={gmailWebHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-accent text-background hover:bg-foreground px-4 py-2.5 transition-colors rounded-none"
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-accent text-background hover:bg-foreground px-5 py-2.5 transition-colors rounded-full"
             >
               <span>SEND VIA GMAIL (BROWSER) ↗</span>
             </a>
             <a
               href={mailtoHref}
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-border-light bg-background text-foreground hover:border-foreground px-4 py-2.5 transition-colors rounded-none"
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-border-light bg-background text-foreground hover:border-foreground px-5 py-2.5 transition-colors rounded-full"
             >
               <span>OPEN MAIL APP ↗</span>
             </a>
@@ -867,7 +867,7 @@ export default function ContactInquiryForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-2 font-sans text-xs uppercase font-semibold tracking-[0.08em] bg-foreground text-background hover:bg-accent px-8 py-4 transition-colors duration-150 rounded-none cursor-pointer disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-2 font-sans text-xs uppercase font-semibold tracking-[0.08em] bg-foreground text-background hover:bg-accent px-8 py-4 transition-colors duration-150 rounded-full cursor-pointer disabled:opacity-50"
         >
           <span>
             {isSubmitting ? "SENDING INQUIRY..." : "SUBMIT PROJECT INQUIRY"}

@@ -215,18 +215,20 @@ export default function VideoTheaterModal({
       onClick={onClose}
     >
       <div
-        className={`relative bg-charcoal border border-border-dark flex flex-col overflow-hidden shadow-2xl max-h-[94dvh] ${
-          isVertical ? "w-full max-w-[360px] sm:max-w-[390px]" : "w-full max-w-5xl"
+        className={`relative bg-[#151619] rounded-2xl border border-white/12 flex flex-col overflow-hidden shadow-[0_28px_80px_rgba(0,0,0,0.6)] max-h-[94dvh] ${
+          isVertical
+            ? "w-full max-w-[440px] sm:max-w-[500px] md:max-w-[540px]"
+            : "w-full max-w-5xl"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Screening Bar */}
-        <div className="flex items-center justify-between px-3.5 sm:px-5 py-2.5 sm:py-3 border-b border-border-dark bg-black/60 shrink-0 gap-2">
-          <div className="flex items-center gap-2.5 overflow-hidden">
+        <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-white/10 bg-charcoal/90 shrink-0 gap-2.5">
+          <div className="flex items-center gap-2.5 min-w-0">
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] bg-white/10 hover:bg-accent text-background px-2.5 sm:px-3 py-1.5 transition-colors cursor-pointer shrink-0 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] bg-white/10 hover:bg-accent text-background px-3.5 py-1.5 rounded-full transition-colors cursor-pointer shrink-0 whitespace-nowrap"
             >
               <span>←</span>
               <span>{isVertical ? "BACK" : "BACK TO PORTFOLIO"}</span>
@@ -234,7 +236,7 @@ export default function VideoTheaterModal({
 
             {!isVertical && (
               <>
-                <span className="hidden sm:inline-block w-2 h-2 bg-accent shrink-0 animate-pulse" />
+                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-accent shrink-0 animate-pulse" />
                 <span className="hidden sm:inline font-mono text-[10px] sm:text-xs uppercase tracking-[0.1em] text-accent truncate">
                   {`THEATER // ${item.category}`}
                 </span>
@@ -278,7 +280,7 @@ export default function VideoTheaterModal({
                 href={`https://www.youtube.com/watch?v=${item.youtubeId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-1.5 bg-white/10 hover:bg-white/20 text-background transition-colors whitespace-nowrap"
+                className="inline-flex font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-background transition-colors whitespace-nowrap"
                 title="Watch on YouTube with manual 1080p selector"
               >
                 WATCH ON YT ↗
@@ -288,7 +290,7 @@ export default function VideoTheaterModal({
               type="button"
               onClick={onClose}
               aria-label="Close cinema theater"
-              className="w-9 h-9 sm:w-10 sm:h-10 border border-border-dark flex items-center justify-center text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer text-sm shrink-0"
+              className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer text-xs shrink-0"
             >
               ✕
             </button>
@@ -299,7 +301,7 @@ export default function VideoTheaterModal({
         <div
           className={`relative bg-black w-full flex items-center justify-center overflow-hidden ${
             isVertical
-              ? "py-0"
+              ? "py-2 sm:py-3"
               : "aspect-[16/9] max-h-[70dvh]"
           }`}
         >
@@ -307,7 +309,7 @@ export default function VideoTheaterModal({
             <div
               className={
                 isVertical
-                  ? "relative aspect-[9/16] h-[64dvh] max-h-[620px] w-auto mx-auto"
+                  ? "relative aspect-[9/16] h-[66dvh] sm:h-[72dvh] max-h-[700px] max-w-full w-auto mx-auto"
                   : "w-full h-full relative"
               }
             >
@@ -316,17 +318,22 @@ export default function VideoTheaterModal({
                 className="w-full h-full [&_iframe]:w-full [&_iframe]:h-full"
               />
               {playerError && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/85 text-background p-6 text-center z-20">
-                  <div>
-                    <p className="font-mono text-xs text-accent uppercase mb-2">Theater Playback Notice</p>
-                    <p className="font-sans text-sm text-background/80 mb-4">{playerError}</p>
+                <div className="absolute inset-0 flex items-center justify-center bg-charcoal/90 backdrop-blur-sm text-background p-6 text-center z-20">
+                  <div className="max-w-sm">
+                    <p className="font-mono text-[10px] tracking-[0.12em] text-accent uppercase mb-2">
+                      Theater Playback Notice
+                    </p>
+                    <p className="font-sans text-sm text-background/80 mb-5 leading-relaxed">
+                      Embedded stream unavailable on this network. Open directly on YouTube for full HD playback.
+                    </p>
                     <a
                       href={`https://www.youtube.com/watch?v=${item.youtubeId}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block font-mono text-xs uppercase px-4 py-2 bg-accent text-background"
+                      className="inline-flex items-center gap-1.5 font-mono text-xs uppercase px-5 py-2.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors"
                     >
-                      Watch on YouTube ↗
+                      <span>Watch on YouTube</span>
+                      <span>↗</span>
                     </a>
                   </div>
                 </div>
@@ -349,7 +356,7 @@ export default function VideoTheaterModal({
                 priority={true}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/75 to-charcoal/85 pointer-events-none" />
-              <div className="relative z-10 max-w-md border border-white/15 bg-black/80 p-5 sm:p-6 backdrop-blur-md">
+              <div className="relative z-10 max-w-md rounded-2xl border border-white/15 bg-black/80 p-5 sm:p-6 backdrop-blur-md">
                 <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-accent block mb-2">
                   {`BY DESIGN STUDIO // ${item.aspectRatio} MASTER`}
                 </span>
@@ -371,7 +378,7 @@ export default function VideoTheaterModal({
               type="button"
               onClick={onPrev}
               aria-label="Previous video"
-              className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-charcoal/85 border border-border-dark text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer text-base"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer text-sm"
             >
               ←
             </button>
@@ -382,7 +389,7 @@ export default function VideoTheaterModal({
               type="button"
               onClick={onNext}
               aria-label="Next video"
-              className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-charcoal/85 border border-border-dark text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer text-base"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer text-sm"
             >
               →
             </button>
@@ -390,7 +397,7 @@ export default function VideoTheaterModal({
         </div>
 
         {/* Modal Project Metadata Footer */}
-        <div className="p-4 sm:p-5 border-t border-border-dark bg-charcoal shrink-0 flex items-center justify-between gap-4">
+        <div className="p-4 sm:p-5 border-t border-white/10 bg-charcoal shrink-0 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
           <div className="space-y-1 min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
               <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-accent font-medium whitespace-nowrap">
@@ -427,7 +434,7 @@ export default function VideoTheaterModal({
               <Link
                 href={`/work/${item.slug}`}
                 onClick={onClose}
-                className="font-mono text-xs uppercase tracking-[0.08em] text-background hover:text-accent transition-colors font-medium border-b border-white/20 pb-0.5 whitespace-nowrap"
+                className="font-mono text-[11px] uppercase tracking-[0.08em] text-background hover:text-accent transition-colors font-medium border-b border-white/20 pb-0.5 whitespace-nowrap"
               >
                 OPEN CASE STUDY ↗
               </Link>
@@ -435,7 +442,7 @@ export default function VideoTheaterModal({
             <Link
               href="/contact"
               onClick={onClose}
-              className="inline-flex items-center justify-center font-sans text-xs uppercase font-semibold tracking-[0.06em] px-4 py-2.5 bg-accent text-background hover:bg-background hover:text-foreground transition-all rounded-none whitespace-nowrap shrink-0"
+              className="inline-flex items-center justify-center font-sans text-xs uppercase font-semibold tracking-[0.06em] px-5 py-2.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-all whitespace-nowrap shrink-0"
             >
               INQUIRE CUT
             </Link>

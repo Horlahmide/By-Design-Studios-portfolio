@@ -8,7 +8,7 @@ export default function NotFound() {
       <Navbar />
 
       <main className="flex-1 flex items-center justify-center px-6 md:px-12 pt-28 pb-20">
-        <div className="max-w-xl w-full border border-border-light bg-surface-container/30 p-8 sm:p-12 text-center">
+        <div className="max-w-xl w-full rounded-2xl border border-border-light bg-surface-container/30 p-8 sm:p-12 text-center">
           <span className="font-mono text-xs uppercase tracking-[0.12em] text-accent font-medium block mb-3">
             {"404 // ARCHIVE ENTRY NOT FOUND"}
           </span>
@@ -22,14 +22,14 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/#work"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-foreground text-background hover:bg-accent px-6 py-3.5 transition-colors rounded-none"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-foreground text-background hover:bg-accent px-7 py-3.5 transition-colors rounded-full"
             >
               <span>←</span>
               <span>BACK TO SELECTED WORK</span>
             </Link>
             <Link
               href="/"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-border-light text-foreground hover:border-foreground px-6 py-3.5 transition-colors rounded-none"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-border-light text-foreground hover:border-foreground px-7 py-3.5 transition-colors rounded-full"
             >
               <span>RETURN HOME</span>
             </Link>

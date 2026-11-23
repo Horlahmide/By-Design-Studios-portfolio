@@ -19,22 +19,28 @@ export default function WorkingProcess() {
 
         {/* 5-Stage Responsive Sequence */}
         <div data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
-          {processStages.map((stage) => (
-            <article
-              key={stage.stage}
-              className="flex flex-col border-t-2 border-foreground pt-4"
-            >
-              <span className="font-mono text-xs text-accent uppercase block mb-1.5 font-medium tracking-[0.08em]">
-                {stage.stage}
-              </span>
-              <h3 className="font-display text-lg sm:text-xl text-foreground font-normal mb-2.5">
-                {stage.title}
-              </h3>
-              <p className="font-sans text-xs sm:text-[13px] text-text-subtle leading-relaxed">
-                {stage.description}
-              </p>
-            </article>
-          ))}
+          {processStages.map((stage, index) => {
+            const isClosingStage = index === processStages.length - 1;
+
+            return (
+              <article
+                key={stage.stage}
+                className={`flex flex-col border-t-2 border-foreground pt-4 ${
+                  isClosingStage ? "sm:col-span-2 lg:col-span-1" : ""
+                }`}
+              >
+                <span className="font-mono text-xs text-accent uppercase block mb-1.5 font-medium tracking-[0.08em]">
+                  {stage.stage}
+                </span>
+                <h3 className="font-display text-lg sm:text-xl text-foreground font-normal mb-2.5">
+                  {stage.title}
+                </h3>
+                <p className="font-sans text-xs sm:text-[13px] text-text-subtle leading-relaxed">
+                  {stage.description}
+                </p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

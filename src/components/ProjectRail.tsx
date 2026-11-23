@@ -98,7 +98,7 @@ export default function ProjectRail() {
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
               aria-label="Previous projects"
-              className="w-11 h-11 border border-border-light rounded-none flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer"
+              className="w-11 h-11 border border-border-light rounded-full flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer text-sm"
             >
               ←
             </button>
@@ -107,7 +107,7 @@ export default function ProjectRail() {
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
               aria-label="Next projects"
-              className="w-11 h-11 border border-border-light rounded-none flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer"
+              className="w-11 h-11 border border-border-light rounded-full flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer text-sm"
             >
               →
             </button>
@@ -124,10 +124,10 @@ export default function ProjectRail() {
             <article
               key={project.id}
               data-yt={project.youtubeId}
-              className="w-[85vw] sm:w-[360px] lg:w-[420px] shrink-0 snap-start flex flex-col bg-background border border-border-light p-5 group hover:border-foreground/40 transition-colors"
+              className="w-[85vw] sm:w-[360px] lg:w-[420px] shrink-0 snap-start flex flex-col bg-background rounded-2xl border border-border-light p-5 group hover:border-foreground/30 hover:shadow-[0_12px_32px_rgba(23,23,23,0.07)] transition-all duration-300"
             >
               {/* Media Aspect Preview Frame (Launches Theater Modal so touch swiping stays smooth) */}
-              <div className="relative aspect-[16/9] w-full overflow-hidden mb-4 bg-surface-container border border-border-subtle">
+              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-4 bg-surface-container border border-border-subtle">
                 <Image
                   src={project.posterUrl}
                   alt={project.title}
@@ -138,7 +138,7 @@ export default function ProjectRail() {
                 <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-charcoal/10 transition-colors duration-300 pointer-events-none" />
 
                 {/* Edit Slate Tag */}
-                <div className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/85 backdrop-blur-sm text-background px-2.5 py-0.5 pointer-events-none z-10">
+                <div className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/80 backdrop-blur-md text-background px-3 py-1 rounded-full border border-white/10 pointer-events-none z-10">
                   {project.editSlate}
                 </div>
 
@@ -149,7 +149,7 @@ export default function ProjectRail() {
                   aria-label={`Watch ${project.title} in theater`}
                   className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
-                  <span className="w-11 h-11 bg-charcoal/90 border border-white/20 text-background flex items-center justify-center opacity-95 md:opacity-85 group-hover:opacity-100 group-hover:bg-accent transition-all duration-200">
+                  <span className="w-12 h-12 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/25 text-background flex items-center justify-center opacity-95 md:opacity-85 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-200 shadow-md">
                     <span className="text-xs pl-0.5">▶</span>
                   </span>
                 </button>

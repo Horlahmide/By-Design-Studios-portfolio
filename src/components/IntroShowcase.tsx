@@ -72,14 +72,14 @@ export default function IntroShowcase() {
             <article
               key={item.id}
               data-yt={item.youtubeId}
-              className="border border-border-light p-4 bg-surface-container/20 flex flex-col group hover:border-foreground/40 transition-colors"
+              className="rounded-2xl border border-border-light p-4 bg-surface-container/20 flex flex-col group hover:border-foreground/30 hover:shadow-[0_12px_32px_rgba(23,23,23,0.06)] transition-all duration-300"
             >
               {/* 16:9 Video Opener Interactive Frame */}
               <button
                 type="button"
                 onClick={() => setTheaterIndex(index)}
                 aria-label={`Play YouTube intro: ${item.title}`}
-                className="relative aspect-video w-full bg-charcoal overflow-hidden mb-3 border border-border-subtle text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="relative aspect-video w-full rounded-xl bg-charcoal overflow-hidden mb-3 border border-border-subtle text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <Image
                   src={item.posterUrl}
@@ -91,13 +91,13 @@ export default function IntroShowcase() {
                 <div className="absolute inset-0 bg-charcoal/25 group-hover:bg-charcoal/10 transition-colors duration-300 pointer-events-none" />
 
                 {/* Bottom-Left Slate Badge */}
-                <div className="absolute bottom-2.5 left-2.5 font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/90 text-background px-2.5 py-0.5 border border-white/10">
+                <div className="absolute bottom-2.5 left-2.5 font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/85 backdrop-blur-md text-background px-3 py-1 rounded-full border border-white/10">
                   {item.badge}
                 </div>
 
-                {/* Touch-Accessible Play Trigger (Always visible on mobile/tablet, enhanced on desktop hover) */}
+                {/* Touch-Accessible Circular Play Trigger */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-95 md:opacity-85 group-hover:opacity-100 transition-opacity duration-200">
-                  <div className="w-11 h-11 bg-charcoal/90 border border-white/20 group-hover:bg-accent group-hover:border-accent text-background flex items-center justify-center shadow-lg transition-all duration-200">
+                  <div className="w-12 h-12 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/25 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 text-background flex items-center justify-center shadow-lg transition-all duration-200">
                     <span className="text-xs pl-0.5">▶</span>
                   </div>
                 </div>

@@ -74,55 +74,59 @@
 }
 
 /* =========================================
-   GLOBAL BASE STYLES
+   GLOBAL BASE STYLES (Tailwind v4 @layer base)
+   Wrapped in @layer base so Tailwind utility
+   classes (text-xs, font-mono, etc.) always win.
 ========================================= */
 
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-  /* Keep anchored section headings clear of the fixed navbar */
-  scroll-padding-top: 88px;
-}
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchored section headings clear of the fixed navbar */
+    scroll-padding-top: 88px;
+  }
 
-body {
-  margin: 0;
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-open-sans), Arial, sans-serif;
-}
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-open-sans), Arial, sans-serif;
+  }
 
-/* Display typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-weight: 500;
-}
+  /* Display typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-weight: 500;
+  }
 
-/* Form elements inherit the site's body font */
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
+  /* Form elements inherit the site's body font without overriding utilities */
+  button,
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
 
-/* Links base styling */
-a {
-  text-decoration: none;
-}
+  /* Links base styling */
+  a {
+    text-decoration: none;
+  }
 
-/* Media should not overflow its containers */
-img,
-video {
-  display: block;
-  max-width: 100%;
+  /* Media should not overflow its containers */
+  img,
+  video {
+    display: block;
+    max-width: 100%;
+  }
 }
 
 /* Text selection */

@@ -58,39 +58,63 @@ export default function ShortFormShowcase() {
           </p>
         </div>
 
-        {/* 3 Aligned Smartphone Compositions */}
-        <div data-reveal-stagger className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch justify-items-center mb-14 lg:mb-16">
+        {/* 3 Descending Staircase Smartphone Compositions */}
+        <div data-reveal-stagger className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-start justify-items-center mb-16 lg:mb-20">
           {shortFormProjects.map((project, index) => {
+            const isHero = Boolean(project.isHero);
+            const staircaseOffsets = [
+              "md:mt-0",
+              "md:mt-8 lg:mt-10",
+              "md:mt-16 lg:mt-20",
+            ];
+            const offsetClass = staircaseOffsets[index] ?? "md:mt-0";
+
             return (
               <article
                 key={project.id}
                 data-yt={project.youtubeId}
-                className="w-full max-w-[300px] sm:max-w-[330px] flex flex-col p-3.5 group transition-all duration-300 bg-white/[0.03] border border-white/15 hover:border-accent hover:bg-white/[0.05]"
+                className={`w-full max-w-[310px] sm:max-w-[330px] flex flex-col p-3.5 group transition-all duration-300 rounded-2xl ${offsetClass} ${
+                  isHero
+                    ? "bg-white/[0.045] border border-accent/60 shadow-[0_20px_50px_rgba(66,99,216,0.18)] hover:border-accent"
+                    : "bg-white/[0.03] border border-white/15 shadow-[0_12px_36px_rgba(0,0,0,0.35)] hover:border-white/35 hover:bg-white/[0.05]"
+                }`}
               >
                 {/* 9:16 Vertical Video Frame (Interactive Trigger) */}
                 <button
                   type="button"
                   onClick={() => setTheaterIndex(index)}
                   aria-label={`Watch short-form video: ${project.title}`}
-                  className="relative aspect-[9/16] w-full overflow-hidden bg-black mb-3.5 border border-white/10 text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  className="relative aspect-[9/16] w-full overflow-hidden rounded-xl bg-black mb-3.5 border border-white/10 text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   <Image
                     src={project.posterUrl}
                     alt={project.title}
                     fill
-                    sizes="(max-width: 768px) 300px, 330px"
+                    sizes="(max-width: 768px) 300px, 350px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/15 to-charcoal/45 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/15 to-charcoal/40 pointer-events-none" />
 
-                  {/* Top Handle / Category Badge */}
-                  <div className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-1 bg-charcoal/85 backdrop-blur-sm text-background border border-white/10 group-hover:bg-accent group-hover:border-accent transition-colors">
-                    {project.handleTag}
+                  {/* Top Handle / Category Pill Badge */}
+                  <div
+                    className={`absolute top-3 left-3 font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full backdrop-blur-md transition-colors ${
+                      isHero
+                        ? "bg-accent text-background font-medium shadow-md"
+                        : "bg-charcoal/85 text-background border border-white/15 group-hover:bg-accent group-hover:border-accent"
+                    }`}
+                  >
+                    {isHero ? "FEATURED SHORT" : project.handleTag}
                   </div>
 
-                  {/* Center Play Button (Uniform Across All Cards) */}
+                  {/* Center Circular Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 flex items-center justify-center text-background bg-charcoal/80 backdrop-blur-sm border border-white/25 opacity-95 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-200">
+                    <div
+                      className={`rounded-full flex items-center justify-center text-background transition-all duration-200 ${
+                        isHero
+                          ? "w-14 h-14 bg-accent ring-4 ring-accent/25 shadow-lg group-hover:scale-110"
+                          : "w-12 h-12 bg-charcoal/75 backdrop-blur-md border border-white/25 opacity-90 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:scale-110"
+                      }`}
+                    >
                       <span className="text-sm pl-0.5">▶</span>
                     </div>
                   </div>
@@ -106,18 +130,18 @@ export default function ShortFormShowcase() {
                   </div>
                 </button>
 
-                {/* Technical Foot Slate (Single-Line Unbroken Layout) */}
-                <div className="mt-auto pt-1 flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.08em] text-[#8E8B82] group-hover:text-background transition-colors">
+                {/* Clean Technical Foot Slate */}
+                <div className="mt-auto px-1 pt-0.5 flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.08em] text-[#8E8B82] group-hover:text-background transition-colors">
                   <span className="truncate">
                     {`${project.number} // ${project.category}`}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => setTheaterIndex(index)}
-                    className="text-accent group-hover:text-background transition-colors cursor-pointer whitespace-nowrap shrink-0 font-medium"
+                  <span
+                    className={`whitespace-nowrap shrink-0 font-medium ${
+                      isHero ? "text-accent" : "text-white/60"
+                    }`}
                   >
-                    [WATCH 9:16 ▶]
-                  </button>
+                    {isHero ? "4K MASTER" : "9:16 VERTICAL"}
+                  </span>
                 </div>
               </article>
             );

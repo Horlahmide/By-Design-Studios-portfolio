@@ -17,59 +17,65 @@ export default function EngagementModels() {
         </p>
       </div>
 
-      {/* 3 Collaboration Cards Grid */}
-      <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
-        {engagementModels.map((model) => (
-          <article
-            key={model.id}
-            className={`p-6 lg:p-8 flex flex-col transition-colors ${
-              model.isPopular
-                ? "border-2 border-accent/60 bg-surface-container/40 shadow-md"
-                : "border border-border-light bg-background hover:border-foreground/40"
-            }`}
-          >
-            {/* Card Header Bar */}
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-subtle">
-              <span className="font-mono text-xs uppercase text-accent font-semibold tracking-[0.08em]">
-                {model.modelNumber}
-              </span>
-              <span
-                className={`font-mono text-[10px] uppercase tracking-[0.08em] px-2 py-0.5 ${
-                  model.isPopular
-                    ? "bg-accent text-background font-medium"
-                    : "text-text-muted border border-border-subtle"
-                }`}
-              >
-                {model.badge}
-              </span>
-            </div>
+      {/* 3 Collaboration Cards Grid (2+1 Balanced on Tablet, 3-Across on Desktop) */}
+      <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+        {engagementModels.map((model, index) => {
+          const isThirdCard = index === engagementModels.length - 1;
 
-            {/* Title & Description */}
-            <h3 className="font-display text-2xl text-foreground font-normal mb-3">
-              {model.title}
-            </h3>
-            <p className="font-sans text-sm text-text-subtle mb-8 flex-grow leading-relaxed">
-              {model.description}
-            </p>
+          return (
+            <article
+              key={model.id}
+              className={`p-6 lg:p-8 rounded-2xl flex flex-col transition-all duration-300 ${
+                isThirdCard ? "md:col-span-2 lg:col-span-1" : ""
+              } ${
+                model.isPopular
+                  ? "border-2 border-accent/60 bg-surface-container/40 shadow-[0_14px_36px_rgba(66,99,216,0.1)]"
+                  : "border border-border-light bg-background hover:border-foreground/30 hover:shadow-[0_12px_32px_rgba(23,23,23,0.06)]"
+              }`}
+            >
+              {/* Card Header Bar */}
+              <div className="flex items-center justify-between gap-3 pb-4 mb-4 border-b border-border-subtle">
+                <span className="font-mono text-xs uppercase text-accent font-semibold tracking-[0.08em] whitespace-nowrap shrink-0">
+                  {model.modelNumber}
+                </span>
+                <span
+                  className={`font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-0.5 rounded-full whitespace-nowrap shrink-0 ${
+                    model.isPopular
+                      ? "bg-accent text-background font-medium"
+                      : "text-text-muted border border-border-subtle"
+                  }`}
+                >
+                  {model.badge}
+                </span>
+              </div>
 
-            {/* Suitable For Footer */}
-            <div className="pt-4 border-t border-border-subtle mt-auto">
-              <span className="font-mono text-[10px] uppercase text-foreground font-semibold block mb-1">
-                SUITABLE FOR:
-              </span>
-              <span className="font-sans text-xs text-text-subtle leading-relaxed block">
-                {model.suitableFor}
-              </span>
-            </div>
-          </article>
-        ))}
+              {/* Title & Description */}
+              <h3 className="font-display text-2xl text-foreground font-normal mb-3">
+                {model.title}
+              </h3>
+              <p className="font-sans text-sm text-text-subtle mb-8 flex-grow leading-relaxed">
+                {model.description}
+              </p>
+
+              {/* Suitable For Footer */}
+              <div className="pt-4 border-t border-border-subtle mt-auto">
+                <span className="font-mono text-[10px] uppercase text-foreground font-semibold block mb-1">
+                  SUITABLE FOR:
+                </span>
+                <span className="font-sans text-xs text-text-subtle leading-relaxed block">
+                  {model.suitableFor}
+                </span>
+              </div>
+            </article>
+          );
+        })}
       </div>
 
       {/* Direct Quote Request Trigger */}
       <div data-reveal className="w-full flex justify-center">
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 font-sans text-xs uppercase font-semibold tracking-[0.06em] bg-foreground text-background px-8 py-3.5 hover:bg-accent transition-colors duration-150 rounded-none group cursor-pointer"
+          className="inline-flex items-center gap-2 font-sans text-xs uppercase font-semibold tracking-[0.06em] bg-foreground text-background px-8 py-3.5 hover:bg-accent transition-colors duration-150 rounded-full group cursor-pointer"
         >
           <span>REQUEST A QUOTE</span>
           <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">

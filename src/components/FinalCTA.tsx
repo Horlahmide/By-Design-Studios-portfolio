@@ -32,7 +32,7 @@ export default function FinalCTA() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full sm:w-auto">
           <Link
             href="/contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-sans text-xs uppercase tracking-[0.08em] font-semibold bg-accent text-background px-8 py-4 hover:bg-background hover:text-foreground transition-all duration-150 rounded-none shadow-xl group cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-sans text-xs uppercase tracking-[0.08em] font-semibold bg-accent text-background px-8 py-4 hover:bg-background hover:text-foreground transition-all duration-150 rounded-full shadow-xl group cursor-pointer"
           >
             <span>OPEN PROJECT INQUIRY FORM</span>
             <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -42,7 +42,7 @@ export default function FinalCTA() {
 
           <a
             href={`mailto:${contactConfig.studioEmail}`}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-white/20 text-background px-6 py-4 hover:bg-background hover:text-foreground transition-all duration-150 rounded-none"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-white/20 text-background px-7 py-4 hover:bg-background hover:text-foreground transition-all duration-150 rounded-full"
           >
             <span>DIRECT EMAIL DISPATCH</span>
           </a>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { introItems, IntroItem } from "@/data/intros";
+import { ArrowOutwardIcon, PlayIcon } from "@/components/Icons";
 import VideoTheaterModal, { TheaterMediaItem } from "@/components/VideoTheaterModal";
 
 function toTheaterItem(item: IntroItem): TheaterMediaItem {
@@ -59,10 +60,10 @@ export default function IntroShowcase() {
 
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center gap-1.5 font-sans text-xs uppercase font-semibold tracking-[0.06em] text-accent hover:text-foreground transition-colors shrink-0"
+            className="hidden sm:inline-flex items-center gap-1.5 font-sans text-xs uppercase font-semibold tracking-[0.06em] text-accent hover:text-foreground transition-colors shrink-0 group"
           >
             <span>INQUIRE ABOUT MOTION OPENERS</span>
-            <span>↗</span>
+            <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
 
@@ -98,7 +99,7 @@ export default function IntroShowcase() {
                 {/* Touch-Accessible Circular Play Trigger */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-95 md:opacity-85 group-hover:opacity-100 transition-opacity duration-200">
                   <div className="w-12 h-12 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/25 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 text-background flex items-center justify-center shadow-lg transition-all duration-200">
-                    <span className="text-xs pl-0.5">▶</span>
+                    <PlayIcon className="w-5 h-5 translate-x-0.5" />
                   </div>
                 </div>
               </button>
@@ -109,9 +110,10 @@ export default function IntroShowcase() {
                 <button
                   type="button"
                   onClick={() => setTheaterIndex(index)}
-                  className="text-accent hover:text-foreground transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1 text-accent hover:text-foreground transition-colors cursor-pointer"
                 >
-                  [PLAY OPENER ▶]
+                  <PlayIcon className="w-3.5 h-3.5" />
+                  <span>PLAY OPENER</span>
                 </button>
               </div>
             </article>

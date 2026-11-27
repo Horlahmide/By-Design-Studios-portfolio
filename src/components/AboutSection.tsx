@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowOutwardIcon } from "@/components/Icons";
 
 export default function AboutSection() {
   return (
@@ -57,9 +58,7 @@ export default function AboutSection() {
                 className="inline-flex items-center gap-1.5 font-sans text-xs uppercase font-semibold tracking-[0.06em] px-7 py-3 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-full group"
               >
                 <span>EXPLORE SERVICES</span>
-                <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  ↗
-                </span>
+                <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link
                 href="/contact"

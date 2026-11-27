@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { featuredProjects, Project } from "@/data/projects";
+import { ArrowOutwardIcon, PlayIcon } from "@/components/Icons";
 import VideoPlayerFrame from "@/components/VideoPlayerFrame";
 import VideoTheaterModal, { TheaterMediaItem } from "@/components/VideoTheaterModal";
 
@@ -132,9 +133,7 @@ export default function FeaturedWork() {
                     className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase font-semibold tracking-[0.08em] leading-none text-foreground hover:text-accent transition-colors group"
                   >
                     <span>VIEW PROJECT</span>
-                    <span className="text-xs leading-none transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                      ↗
-                    </span>
+                    <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
                   <span
                     className="h-3.5 w-px bg-border-light shrink-0"
@@ -145,7 +144,7 @@ export default function FeaturedWork() {
                     onClick={() => setTheaterIndex(index)}
                     className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase font-medium tracking-[0.08em] leading-none text-text-muted hover:text-accent transition-colors cursor-pointer"
                   >
-                    <span className="text-[9px] leading-none">▶</span>
+                    <PlayIcon className="w-3.5 h-3.5" />
                     <span>WATCH IN THEATER</span>
                   </button>
                 </div>
@@ -193,9 +192,7 @@ export default function FeaturedWork() {
                     className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase font-semibold tracking-[0.08em] leading-none text-foreground hover:text-accent transition-colors group"
                   >
                     <span>VIEW PROJECT</span>
-                    <span className="text-xs leading-none transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                      ↗
-                    </span>
+                    <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
                   <span
                     className="h-3.5 w-px bg-border-light shrink-0"
@@ -206,7 +203,7 @@ export default function FeaturedWork() {
                     onClick={() => setTheaterIndex(index)}
                     className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase font-medium tracking-[0.08em] leading-none text-text-muted hover:text-accent transition-colors cursor-pointer"
                   >
-                    <span className="text-[9px] leading-none">▶</span>
+                    <PlayIcon className="w-3.5 h-3.5" />
                     <span>WATCH IN THEATER</span>
                   </button>
                 </div>
@@ -281,9 +278,7 @@ export default function FeaturedWork() {
                   className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase font-semibold tracking-[0.08em] leading-none text-foreground hover:text-accent transition-colors group"
                 >
                   <span>VIEW PROJECT</span>
-                  <span className="text-xs leading-none transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    ↗
-                  </span>
+                  <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
                 <span
                   className="h-3.5 w-px bg-border-light shrink-0"
@@ -294,7 +289,7 @@ export default function FeaturedWork() {
                   onClick={() => setTheaterIndex(index)}
                   className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase font-medium tracking-[0.08em] leading-none text-text-muted hover:text-accent transition-colors cursor-pointer"
                 >
-                  <span className="text-[9px] leading-none">▶</span>
+                  <PlayIcon className="w-3.5 h-3.5" />
                   <span>WATCH IN THEATER</span>
                 </button>
               </div>

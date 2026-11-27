@@ -4,6 +4,12 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { railProjects, Project } from "@/data/projects";
+import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  ArrowOutwardIcon,
+  PlayIcon,
+} from "@/components/Icons";
 import VideoTheaterModal, { TheaterMediaItem } from "@/components/VideoTheaterModal";
 
 function toTheaterItem(project: Project): TheaterMediaItem {
@@ -98,18 +104,18 @@ export default function ProjectRail() {
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
               aria-label="Previous projects"
-              className="w-11 h-11 border border-border-light rounded-full flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer text-sm"
+              className="w-11 h-11 border border-border-light rounded-full flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer"
             >
-              ←
+              <ArrowBackIcon className="w-4 h-4" />
             </button>
             <button
               type="button"
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
               aria-label="Next projects"
-              className="w-11 h-11 border border-border-light rounded-full flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer text-sm"
+              className="w-11 h-11 border border-border-light rounded-full flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer"
             >
-              →
+              <ArrowForwardIcon className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -150,7 +156,7 @@ export default function ProjectRail() {
                   className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   <span className="w-12 h-12 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/25 text-background flex items-center justify-center opacity-95 md:opacity-85 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-200 shadow-md">
-                    <span className="text-xs pl-0.5">▶</span>
+                    <PlayIcon className="w-5 h-5 translate-x-0.5" />
                   </span>
                 </button>
               </div>
@@ -177,9 +183,7 @@ export default function ProjectRail() {
                     className="inline-flex items-center gap-1 font-sans text-[11px] uppercase font-semibold tracking-[0.08em] leading-none text-foreground hover:text-accent transition-colors group"
                   >
                     <span>VIEW PROJECT</span>
-                    <span className="text-xs leading-none transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                      ↗
-                    </span>
+                    <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
                   <span
                     className="h-3 w-px bg-border-light shrink-0"
@@ -188,9 +192,9 @@ export default function ProjectRail() {
                   <button
                     type="button"
                     onClick={() => setTheaterIndex(index)}
-                    className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase font-medium tracking-[0.08em] leading-none text-text-muted hover:text-accent transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1 font-sans text-[11px] uppercase font-medium tracking-[0.08em] leading-none text-text-muted hover:text-accent transition-colors cursor-pointer"
                   >
-                    <span className="text-[9px] leading-none">▶</span>
+                    <PlayIcon className="w-3.5 h-3.5" />
                     <span>THEATER</span>
                   </button>
                 </div>

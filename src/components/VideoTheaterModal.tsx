@@ -10,6 +10,12 @@ import {
   subscribeToNetworkChanges,
 } from "@/utils/networkQuality";
 import { loadYouTubeIframeApi } from "@/utils/loadYouTubeApi";
+import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  ArrowOutwardIcon,
+  CloseIcon,
+} from "@/components/Icons";
 
 export interface TheaterMediaItem {
   id: string;
@@ -230,7 +236,7 @@ export default function VideoTheaterModal({
               onClick={onClose}
               className="inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] bg-white/10 hover:bg-accent text-background px-3.5 py-1.5 rounded-full transition-colors cursor-pointer shrink-0 whitespace-nowrap"
             >
-              <span>←</span>
+              <ArrowBackIcon className="w-3 h-3" />
               <span>{isVertical ? "BACK" : "BACK TO PORTFOLIO"}</span>
             </button>
 
@@ -280,19 +286,20 @@ export default function VideoTheaterModal({
                 href={`https://www.youtube.com/watch?v=${item.youtubeId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-background transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-background transition-colors whitespace-nowrap"
                 title="Watch on YouTube with manual 1080p selector"
               >
-                WATCH ON YT ↗
+                <span>WATCH ON YT</span>
+                <ArrowOutwardIcon className="w-3 h-3" />
               </a>
             )}
             <button
               type="button"
               onClick={onClose}
               aria-label="Close cinema theater"
-              className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer text-xs shrink-0"
+              className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer shrink-0"
             >
-              ✕
+              <CloseIcon className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -333,7 +340,7 @@ export default function VideoTheaterModal({
                       className="inline-flex items-center gap-1.5 font-mono text-xs uppercase px-5 py-2.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors"
                     >
                       <span>Watch on YouTube</span>
-                      <span>↗</span>
+                      <ArrowOutwardIcon className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
@@ -378,9 +385,9 @@ export default function VideoTheaterModal({
               type="button"
               onClick={onPrev}
               aria-label="Previous video"
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer text-sm"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer"
             >
-              ←
+              <ArrowBackIcon className="w-4 h-4" />
             </button>
           )}
 
@@ -389,9 +396,9 @@ export default function VideoTheaterModal({
               type="button"
               onClick={onNext}
               aria-label="Next video"
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer text-sm"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer"
             >
-              →
+              <ArrowForwardIcon className="w-4 h-4" />
             </button>
           )}
         </div>
@@ -434,9 +441,10 @@ export default function VideoTheaterModal({
               <Link
                 href={`/work/${item.slug}`}
                 onClick={onClose}
-                className="font-mono text-[11px] uppercase tracking-[0.08em] text-background hover:text-accent transition-colors font-medium border-b border-white/20 pb-0.5 whitespace-nowrap"
+                className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.08em] text-background hover:text-accent transition-colors font-medium border-b border-white/20 pb-0.5 whitespace-nowrap"
               >
-                OPEN CASE STUDY ↗
+                <span>OPEN CASE STUDY</span>
+                <ArrowOutwardIcon className="w-3 h-3" />
               </Link>
             )}
             <Link

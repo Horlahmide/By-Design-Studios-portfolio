@@ -3,6 +3,12 @@
 import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { contactConfig } from "@/data/contact";
+import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  ArrowOutwardIcon,
+  CheckIcon,
+} from "@/components/Icons";
 
 interface InquiryFormState {
   fullName: string;
@@ -285,8 +291,9 @@ export default function ContactInquiryForm() {
 
           {/* Optional Backup Actions */}
           <div className="bg-surface-container/40 rounded-xl border border-border-subtle p-5 mb-8">
-            <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-foreground font-semibold block mb-2">
-              ✓ WEB3FORMS EMAIL DELIVERY CONFIRMED
+            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-foreground font-semibold mb-2">
+              <CheckIcon className="w-3.5 h-3.5 text-accent" />
+              <span>WEB3FORMS EMAIL DELIVERY CONFIRMED</span>
             </span>
             <p className="font-sans text-xs text-text-subtle leading-relaxed mb-4">
               Your inquiry has been sent to <strong>{contactConfig.studioEmail}</strong> (check Promotions/Spam if testing from the same email address). You can also copy your brief below:
@@ -297,17 +304,23 @@ export default function ContactInquiryForm() {
                 onClick={handleCopyBrief}
                 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-foreground text-background hover:bg-accent px-5 py-2.5 transition-colors cursor-pointer rounded-full"
               >
-                <span>
-                  {copiedBrief ? "✓ COPIED TO CLIPBOARD" : "COPY INQUIRY BRIEF"}
-                </span>
+                {copiedBrief ? (
+                  <>
+                    <CheckIcon className="w-3.5 h-3.5" />
+                    <span>COPIED TO CLIPBOARD</span>
+                  </>
+                ) : (
+                  <span>COPY INQUIRY BRIEF</span>
+                )}
               </button>
               <a
                 href={gmailWebHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-border-light bg-background text-foreground hover:border-foreground px-5 py-2.5 transition-colors rounded-full"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.08em] border border-border-light bg-background text-foreground hover:border-foreground px-5 py-2.5 transition-colors rounded-full"
               >
-                <span>OPEN IN GMAIL (BROWSER) ↗</span>
+                <span>OPEN IN GMAIL (BROWSER)</span>
+                <ArrowOutwardIcon className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
@@ -315,9 +328,10 @@ export default function ContactInquiryForm() {
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] text-foreground hover:text-accent transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.08em] text-foreground hover:text-accent transition-colors font-medium"
             >
-              <span>← RETURN TO PORTFOLIO</span>
+              <ArrowBackIcon className="w-3.5 h-3.5" />
+              <span>RETURN TO PORTFOLIO</span>
             </Link>
             <button
               type="button"
@@ -844,15 +858,17 @@ export default function ContactInquiryForm() {
               href={gmailWebHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-accent text-background hover:bg-foreground px-5 py-2.5 transition-colors rounded-full"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.08em] bg-accent text-background hover:bg-foreground px-5 py-2.5 transition-colors rounded-full"
             >
-              <span>SEND VIA GMAIL (BROWSER) ↗</span>
+              <span>SEND VIA GMAIL (BROWSER)</span>
+              <ArrowOutwardIcon className="w-3.5 h-3.5" />
             </a>
             <a
               href={mailtoHref}
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] border border-border-light bg-background text-foreground hover:border-foreground px-5 py-2.5 transition-colors rounded-full"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.08em] border border-border-light bg-background text-foreground hover:border-foreground px-5 py-2.5 transition-colors rounded-full"
             >
-              <span>OPEN MAIL APP ↗</span>
+              <span>OPEN MAIL APP</span>
+              <ArrowOutwardIcon className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
@@ -872,7 +888,7 @@ export default function ContactInquiryForm() {
           <span>
             {isSubmitting ? "SENDING INQUIRY..." : "SUBMIT PROJECT INQUIRY"}
           </span>
-          <span>→</span>
+          <ArrowForwardIcon className="w-3.5 h-3.5" />
         </button>
       </div>
     </form>

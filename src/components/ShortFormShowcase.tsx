@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { shortFormProjects, ShortFormProject } from "@/data/shorts";
+import { ArrowOutwardIcon, PlayIcon } from "@/components/Icons";
 import VideoTheaterModal, { TheaterMediaItem } from "@/components/VideoTheaterModal";
 
 function toTheaterItem(project: ShortFormProject): TheaterMediaItem {
@@ -115,7 +116,7 @@ export default function ShortFormShowcase() {
                           : "w-12 h-12 bg-charcoal/75 backdrop-blur-md border border-white/25 opacity-90 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:scale-110"
                       }`}
                     >
-                      <span className="text-sm pl-0.5">▶</span>
+                      <PlayIcon className={isHero ? "w-6 h-6 translate-x-0.5" : "w-5 h-5 translate-x-0.5"} />
                     </div>
                   </div>
 
@@ -155,9 +156,7 @@ export default function ShortFormShowcase() {
             className="inline-flex items-center gap-2 font-sans text-xs uppercase font-semibold tracking-[0.08em] text-accent hover:text-background transition-colors group"
           >
             <span>INQUIRE ABOUT SHORT-FORM RETAINERS</span>
-            <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              ↗
-            </span>
+            <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
       </div>

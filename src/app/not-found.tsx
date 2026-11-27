@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ArrowBackIcon } from "@/components/Icons";
 
 export default function NotFound() {
   return (
@@ -24,7 +25,7 @@ export default function NotFound() {
               href="/#work"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.08em] bg-foreground text-background hover:bg-accent px-7 py-3.5 transition-colors rounded-full"
             >
-              <span>←</span>
+              <ArrowBackIcon className="w-3.5 h-3.5" />
               <span>BACK TO SELECTED WORK</span>
             </Link>
             <Link

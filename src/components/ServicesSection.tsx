@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { services } from "@/data/services";
+import { ArrowForwardIcon, ArrowOutwardIcon } from "@/components/Icons";
 
 export default function ServicesSection() {
   return (
@@ -18,9 +19,7 @@ export default function ServicesSection() {
             className="inline-flex items-center gap-1.5 bg-foreground hover:bg-accent text-background px-6 py-3 font-mono text-xs uppercase tracking-[0.06em] transition-colors shrink-0 self-start md:self-auto rounded-full group cursor-pointer"
           >
             <span>DISCUSS A PROJECT</span>
-            <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              ↗
-            </span>
+            <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
       </div>
@@ -53,10 +52,10 @@ export default function ServicesSection() {
             <div className="md:col-span-2 text-left md:text-right">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-foreground hover:text-accent uppercase transition-colors font-medium group-hover:translate-x-1 duration-150 whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-foreground hover:text-accent uppercase transition-colors font-medium group-hover:translate-x-1 duration-150 whitespace-nowrap"
               >
                 <span>DISPATCH</span>
-                <span>→</span>
+                <ArrowForwardIcon className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>

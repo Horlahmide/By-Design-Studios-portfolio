@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactInquiryForm from "@/components/ContactInquiryForm";
+import { ArrowBackIcon, ArrowOutwardIcon } from "@/components/Icons";
 import { contactConfig } from "@/data/contact";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function ContactPage() {
               href="/"
               className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] text-foreground hover:text-accent transition-colors font-medium min-h-[40px]"
             >
-              <span>←</span>
+              <ArrowBackIcon className="w-3.5 h-3.5" />
               <span>BACK TO PORTFOLIO</span>
             </Link>
 
@@ -130,8 +131,9 @@ export default function ContactPage() {
                       <span className="font-sans text-xs uppercase font-semibold tracking-[0.06em] text-foreground group-hover:text-accent transition-colors">
                         {channel.label}
                       </span>
-                      <span className="font-mono text-[10px] text-text-muted uppercase">
-                        {channel.handle} ↗
+                      <span className="inline-flex items-center gap-1 font-mono text-[10px] text-text-muted uppercase">
+                        <span>{channel.handle}</span>
+                        <ArrowOutwardIcon className="w-3 h-3" />
                       </span>
                     </a>
                   ))}

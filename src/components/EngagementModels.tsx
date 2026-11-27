@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { engagementModels } from "@/data/engagement";
+import { ArrowOutwardIcon } from "@/components/Icons";
 
 export default function EngagementModels() {
   return (
@@ -78,9 +79,7 @@ export default function EngagementModels() {
           className="inline-flex items-center gap-2 font-sans text-xs uppercase font-semibold tracking-[0.06em] bg-foreground text-background px-8 py-3.5 hover:bg-accent transition-colors duration-150 rounded-full group cursor-pointer"
         >
           <span>REQUEST A QUOTE</span>
-          <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-            ↗
-          </span>
+          <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
       </div>
     </section>

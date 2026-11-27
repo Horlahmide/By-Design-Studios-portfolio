@@ -7,6 +7,11 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import ProjectDetailVideoClient from "@/components/ProjectDetailVideoClient";
 import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  ArrowOutwardIcon,
+} from "@/components/Icons";
+import {
   projects,
   getProjectBySlug,
   getAdjacentProjects,
@@ -88,7 +93,7 @@ export default async function ProjectDetailPage({
               href="/#work"
               className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] text-foreground hover:text-accent transition-colors font-medium min-h-[40px]"
             >
-              <span>←</span>
+              <ArrowBackIcon className="w-3.5 h-3.5" />
               <span>BACK TO SELECTED WORK</span>
             </Link>
 
@@ -215,9 +220,10 @@ export default async function ProjectDetailPage({
                 </span>
                 <Link
                   href="/contact"
-                  className="font-mono text-xs uppercase tracking-[0.08em] text-foreground hover:text-accent transition-colors font-medium"
+                  className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.08em] text-foreground hover:text-accent transition-colors font-medium"
                 >
-                  INQUIRE SIMILAR CUT ↗
+                  <span>INQUIRE SIMILAR CUT</span>
+                  <ArrowOutwardIcon className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
@@ -231,8 +237,9 @@ export default async function ProjectDetailPage({
               href={`/work/${prev.slug}`}
               className="group rounded-2xl border border-border-light p-6 hover:border-foreground/40 hover:shadow-[0_10px_28px_rgba(23,23,23,0.05)] transition-all flex flex-col justify-between"
             >
-              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted group-hover:text-accent transition-colors mb-2">
-                ← PREVIOUS PROJECT
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted group-hover:text-accent transition-colors mb-2">
+                <ArrowBackIcon className="w-3.5 h-3.5" />
+                <span>PREVIOUS PROJECT</span>
               </span>
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="font-display text-xl sm:text-2xl text-foreground font-normal">
@@ -248,8 +255,9 @@ export default async function ProjectDetailPage({
               href={`/work/${next.slug}`}
               className="group rounded-2xl border border-border-light p-6 hover:border-foreground/40 hover:shadow-[0_10px_28px_rgba(23,23,23,0.05)] transition-all flex flex-col justify-between sm:text-right"
             >
-              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted group-hover:text-accent transition-colors mb-2">
-                NEXT PROJECT →
+              <span className="inline-flex items-center sm:justify-end gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted group-hover:text-accent transition-colors mb-2">
+                <span>NEXT PROJECT</span>
+                <ArrowForwardIcon className="w-3.5 h-3.5" />
               </span>
               <div className="flex sm:flex-row-reverse items-baseline justify-between gap-4">
                 <h3 className="font-display text-xl sm:text-2xl text-foreground font-normal">
@@ -276,9 +284,10 @@ export default async function ProjectDetailPage({
             </div>
             <Link
               href="/#work"
-              className="font-mono text-xs uppercase tracking-[0.08em] text-foreground hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.08em] text-foreground hover:text-accent transition-colors"
             >
-              VIEW ALL PROJECTS →
+              <span>VIEW ALL PROJECTS</span>
+              <ArrowForwardIcon className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -321,9 +330,10 @@ export default async function ProjectDetailPage({
                   </span>
                   <Link
                     href={`/work/${item.slug}`}
-                    className="font-mono text-xs uppercase tracking-[0.06em] text-foreground group-hover:text-accent transition-colors"
+                    className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.06em] text-foreground group-hover:text-accent transition-colors"
                   >
-                    OPEN PROJECT ↗
+                    <span>OPEN PROJECT</span>
+                    <ArrowOutwardIcon className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </article>

@@ -5,6 +5,13 @@ import Image from "next/image";
 import type { CutComparisonData } from "@/data/approach";
 import { loadYouTubeIframeApi } from "@/utils/loadYouTubeApi";
 import { warmYouTubeConnection } from "@/utils/networkQuality";
+import {
+  ArrowOutwardIcon,
+  PlayIcon,
+  ReplayIcon,
+  VolumeOffIcon,
+  VolumeUpIcon,
+} from "@/components/Icons";
 
 interface CutComparisonPlayerProps {
   comparison: CutComparisonData;
@@ -356,10 +363,11 @@ export default function CutComparisonPlayer({
             href={`https://www.youtube.com/watch?v=${data.youtubeId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-1 rounded-full text-[#8E8B82] hover:text-background hover:bg-white/[0.06] transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.08em] px-2.5 py-1 rounded-full text-[#8E8B82] hover:text-background hover:bg-white/[0.06] transition-colors whitespace-nowrap"
             title={`Watch ${data.title} directly on YouTube`}
           >
-            WATCH ON YT ↗
+            <span>WATCH ON YT</span>
+            <ArrowOutwardIcon className="w-3 h-3" />
           </a>
         </div>
 
@@ -391,7 +399,7 @@ export default function CutComparisonPlayer({
                     className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] px-5 py-2.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors shadow-md"
                   >
                     <span>WATCH ON YOUTUBE</span>
-                    <span>↗</span>
+                    <ArrowOutwardIcon className="w-3.5 h-3.5" />
                   </a>
                 </div>
               ) : (
@@ -408,7 +416,7 @@ export default function CutComparisonPlayer({
                         : "bg-charcoal/80 border-white/25 text-background group-hover:bg-accent group-hover:border-accent"
                     }`}
                   >
-                    <span>▶</span>
+                    <PlayIcon className="w-3.5 h-3.5" />
                     <span>{autoplaySkipped ? "PLAY COMPARISON" : "LOADING PREVIEW"}</span>
                   </span>
                 </button>
@@ -437,13 +445,23 @@ export default function CutComparisonPlayer({
             <button
               type="button"
               onClick={() => handleToggleAudio(side)}
-              className={`font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full border transition-colors cursor-pointer shrink-0 ${
+              className={`inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full border transition-colors cursor-pointer shrink-0 ${
                 activeAudio === side
                   ? "bg-accent border-accent text-background"
                   : "border-white/15 bg-white/[0.04] text-background/85 hover:border-background hover:text-background"
               }`}
             >
-              {activeAudio === side ? "🔊 AUDIO ON" : "🔇 UNMUTE"}
+              {activeAudio === side ? (
+                <>
+                  <VolumeUpIcon className="w-3 h-3" />
+                  <span>AUDIO ON</span>
+                </>
+              ) : (
+                <>
+                  <VolumeOffIcon className="w-3 h-3" />
+                  <span>UNMUTE</span>
+                </>
+              )}
             </button>
           )}
         </div>
@@ -491,19 +509,21 @@ export default function CutComparisonPlayer({
             <button
               type="button"
               onClick={handleManualActivate}
-              className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-4 py-1.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-4 py-1.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer"
             >
-              ▶ PLAY BOTH SIDE-BY-SIDE
+              <PlayIcon className="w-3.5 h-3.5" />
+              <span>PLAY BOTH SIDE-BY-SIDE</span>
             </button>
           ) : (
             !loadError && (
               <button
                 type="button"
                 onClick={handleSyncRestart}
-                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-4 py-1.5 rounded-full bg-white/10 hover:bg-accent text-background transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-4 py-1.5 rounded-full bg-white/10 hover:bg-accent text-background transition-colors cursor-pointer"
                 title="Restart both Raw and Final videos from 0:00 together"
               >
-                ⟳ SYNC RESTART BOTH
+                <ReplayIcon className="w-3.5 h-3.5" />
+                <span>SYNC RESTART BOTH</span>
               </button>
             )
           )}

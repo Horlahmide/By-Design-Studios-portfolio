@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ArrowOutwardIcon } from "@/components/Icons";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -83,7 +84,7 @@ export default function Navbar() {
             className="font-sans text-xs uppercase font-semibold tracking-[0.06em] px-5 py-2.5 bg-foreground text-background hover:bg-accent transition-colors duration-150 rounded-full flex items-center gap-1.5"
           >
             <span>START A PROJECT</span>
-            <span className="text-sm leading-none">↗</span>
+            <ArrowOutwardIcon className="w-3.5 h-3.5" />
           </Link>
         </div>
 
@@ -149,9 +150,10 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full text-center font-sans text-xs uppercase font-semibold tracking-[0.06em] py-3 bg-foreground text-background hover:bg-accent transition-colors rounded-full"
+            className="w-full inline-flex items-center justify-center gap-1.5 font-sans text-xs uppercase font-semibold tracking-[0.06em] py-3 bg-foreground text-background hover:bg-accent transition-colors rounded-full"
           >
-            START A PROJECT ↗
+            <span>START A PROJECT</span>
+            <ArrowOutwardIcon className="w-3.5 h-3.5" />
           </Link>
         </div>
       )}

@@ -9,6 +9,12 @@ import {
   subscribeToNetworkChanges,
 } from "@/utils/networkQuality";
 import { loadYouTubeIframeApi } from "@/utils/loadYouTubeApi";
+import {
+  ArrowOutwardIcon,
+  CloseIcon,
+  OpenInFullIcon,
+  PlayIcon,
+} from "@/components/Icons";
 
 interface VideoPlayerFrameProps {
   id: string;
@@ -233,7 +239,7 @@ export default function VideoPlayerFrame({
           <div
             className={`absolute ${
               slatePosition === "bottom-left"
-                ? "bottom-4 sm:bottom-6 left-4 sm:left-6"
+                ? "top-3 left-3 sm:top-auto sm:bottom-6 sm:left-6"
                 : "top-4 left-4"
             } font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] bg-charcoal/80 backdrop-blur-md text-background px-3.5 py-1.5 rounded-full border border-white/15 pointer-events-none z-10`}
           >
@@ -252,7 +258,7 @@ export default function VideoPlayerFrame({
           <div
             className={`absolute ${
               slatePosition === "bottom-left"
-                ? "bottom-4 sm:bottom-6 right-4 sm:right-6"
+                ? "bottom-3 sm:bottom-6 right-3 sm:right-6"
                 : "bottom-4 right-4"
             } flex items-center gap-2 z-20`}
           >
@@ -261,23 +267,24 @@ export default function VideoPlayerFrame({
                 type="button"
                 onClick={onOpenTheater}
                 aria-label={`Open ${title} in cinema theater modal`}
-                className="hidden sm:inline-flex items-center justify-center min-h-[38px] px-3.5 rounded-full font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/80 backdrop-blur-md text-background/95 border border-white/20 hover:bg-background hover:text-foreground transition-colors cursor-pointer"
+                className="hidden sm:inline-flex items-center justify-center gap-1.5 min-h-[38px] px-3.5 rounded-full font-mono text-[10px] uppercase tracking-[0.08em] bg-charcoal/80 backdrop-blur-md text-background/95 border border-white/20 hover:bg-background hover:text-foreground transition-colors cursor-pointer"
                 title="Watch in Cinema Theater Mode"
               >
-                <span>THEATER ⤢</span>
+                <span>THEATER</span>
+                <OpenInFullIcon className="w-3 h-3" />
               </button>
             )}
 
             <button
               type="button"
               onClick={handleStartPlayback}
-              className={`inline-flex items-center gap-2 min-h-[40px] rounded-full font-mono text-[11px] uppercase tracking-[0.06em] cursor-pointer transition-all duration-200 shadow-md ${
+              className={`inline-flex items-center gap-1.5 min-h-[40px] rounded-full font-mono text-[11px] uppercase tracking-[0.06em] cursor-pointer transition-all duration-200 shadow-md ${
                 triggerVariant === "accent"
                   ? "bg-accent text-background px-5 py-2 hover:bg-background hover:text-foreground"
                   : "bg-charcoal/85 backdrop-blur-md text-background border border-white/15 px-4 py-2 opacity-95 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent"
               }`}
             >
-              <span className="text-[11px]">▶</span>
+              <PlayIcon className="w-3.5 h-3.5" />
               <span>{triggerLabel}</span>
             </button>
           </div>
@@ -328,10 +335,11 @@ export default function VideoPlayerFrame({
                   href={`https://www.youtube.com/watch?v=${youtubeId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden md:inline-flex font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-background transition-colors"
+                  className="hidden md:inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-background transition-colors"
                   title="Open directly in YouTube for manual 1080p lock"
                 >
-                  WATCH ON YT ↗
+                  <span>WATCH ON YT</span>
+                  <ArrowOutwardIcon className="w-3 h-3" />
                 </a>
               )}
 
@@ -339,9 +347,10 @@ export default function VideoPlayerFrame({
                 <button
                   type="button"
                   onClick={handleSwitchToTheater}
-                  className="font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-accent text-background transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-accent text-background transition-colors cursor-pointer"
                 >
-                  THEATER ⤢
+                  <span>THEATER</span>
+                  <OpenInFullIcon className="w-3 h-3" />
                 </button>
               )}
 
@@ -349,9 +358,10 @@ export default function VideoPlayerFrame({
                 type="button"
                 onClick={handleStopPlayback}
                 aria-label="Close video player"
-                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-background hover:text-foreground text-background transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.08em] px-3 py-1 rounded-full bg-white/10 hover:bg-background hover:text-foreground text-background transition-colors cursor-pointer"
               >
-                ✕ CLOSE
+                <CloseIcon className="w-3 h-3" />
+                <span>CLOSE</span>
               </button>
             </div>
           </div>
@@ -376,7 +386,7 @@ export default function VideoPlayerFrame({
                       className="inline-flex items-center gap-1.5 font-mono text-xs uppercase px-5 py-2.5 rounded-full bg-accent text-background hover:bg-background hover:text-foreground transition-colors"
                     >
                       <span>Watch on YouTube</span>
-                      <span>↗</span>
+                      <ArrowOutwardIcon className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>

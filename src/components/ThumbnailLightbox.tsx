@@ -3,6 +3,11 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { ThumbnailItem } from "@/data/thumbnails";
+import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  CloseIcon,
+} from "@/components/Icons";
 
 interface ThumbnailLightboxProps {
   item: ThumbnailItem | null;
@@ -58,7 +63,7 @@ export default function ThumbnailLightbox({
               onClick={onClose}
               className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] bg-white/10 hover:bg-accent text-background px-4 py-1.5 rounded-full transition-colors cursor-pointer shrink-0"
             >
-              <span>←</span>
+              <ArrowBackIcon className="w-3.5 h-3.5" />
               <span>BACK TO PORTFOLIO</span>
             </button>
             <span className="hidden md:inline font-mono text-xs uppercase tracking-[0.1em] text-accent truncate">
@@ -76,9 +81,9 @@ export default function ThumbnailLightbox({
             type="button"
             onClick={onClose}
             aria-label="Close thumbnail viewer"
-            className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer text-xs shrink-0"
+            className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-background hover:bg-background hover:text-foreground transition-colors cursor-pointer shrink-0"
           >
-            ✕
+            <CloseIcon className="w-4 h-4" />
           </button>
         </div>
 
@@ -98,9 +103,9 @@ export default function ThumbnailLightbox({
             type="button"
             onClick={onPrev}
             aria-label="Previous thumbnail"
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer text-sm"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer"
           >
-            ←
+            <ArrowBackIcon className="w-4 h-4" />
           </button>
 
           {/* Step Next Button */}
@@ -108,9 +113,9 @@ export default function ThumbnailLightbox({
             type="button"
             onClick={onNext}
             aria-label="Next thumbnail"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer text-sm"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-charcoal/85 backdrop-blur-md border border-white/20 text-background flex items-center justify-center hover:bg-background hover:text-foreground transition-colors cursor-pointer"
           >
-            →
+            <ArrowForwardIcon className="w-4 h-4" />
           </button>
         </div>
 
@@ -132,9 +137,10 @@ export default function ThumbnailLightbox({
             <button
               type="button"
               onClick={onClose}
-              className="font-mono text-[11px] uppercase tracking-[0.08em] border border-white/20 hover:border-background hover:bg-background hover:text-foreground text-background px-4 py-2 rounded-full transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] border border-white/20 hover:border-background hover:bg-background hover:text-foreground text-background px-4 py-2 rounded-full transition-colors cursor-pointer"
             >
-              CLOSE VIEWER ✕
+              <span>CLOSE VIEWER</span>
+              <CloseIcon className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

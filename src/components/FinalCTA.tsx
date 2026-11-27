@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { contactConfig } from "@/data/contact";
+import { ArrowOutwardIcon } from "@/components/Icons";
 
 export default function FinalCTA() {
   return (
@@ -35,9 +36,7 @@ export default function FinalCTA() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-sans text-xs uppercase tracking-[0.08em] font-semibold bg-accent text-background px-8 py-4 hover:bg-background hover:text-foreground transition-all duration-150 rounded-full shadow-xl group cursor-pointer"
           >
             <span>OPEN PROJECT INQUIRY FORM</span>
-            <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              ↗
-            </span>
+            <ArrowOutwardIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
 
           <a
